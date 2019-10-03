@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /acsc
+Disallow: /dashboard.html
+Disallow: /justone
+Disallow: /parallax-scrolling
+Disallow: /img/*.ico
+Disallow: /img/Trees*
