@@ -1,0 +1,28 @@
+{
+  "name": "brianmorris.info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "normalize.css": "8.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianjmorris/brianmorris.info.git"
+  },
+  "keywords": [
+    "Brian",
+    "Morris",
+    "node",
+    "nodejs"
+  ],
+  "author": "Brian Morris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianjmorris/brianmorris.info/issues"
+  },
+  "homepage": "https://github.com/brianjmorris/brianmorris.info#readme"
+}
