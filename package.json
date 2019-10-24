@@ -1,13 +1,17 @@
 {
   "name": "brianmorris.info",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal website hosted with Firebase and NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "transpileSASS": "node-sass ./style/main.scss ./public/style/main.css",
+    "build": "npm run transpileSASS",
+    "serve": "firebase serve -o 0.0.0.0",
+    "buildAndServe": "npm run build && npm run serve",
+    "test": "npm run serve"
   },
-  "dependencies": {
-    "normalize.css": "8.*"
+  "devDependencies": {
+    "node-sass": "^4.13.0"
   },
   "repository": {
     "type": "git",
@@ -16,8 +20,13 @@
   "keywords": [
     "Brian",
     "Morris",
-    "node",
-    "nodejs"
+    "Website",
+    "Node",
+    "JS",
+    "NodeJS",
+    "EJS",
+    "SASS",
+    "SCSS"
   ],
   "author": "Brian Morris",
   "license": "ISC",

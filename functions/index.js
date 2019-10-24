@@ -1,12 +1,16 @@
 /* © Brian Morris 2019 | http://brianmorris.info */
 
+const resumePath = '/Brian+Morris+Resume.pdf';
+
 const functions = require('firebase-functions');
 const express = require('express');
 const path = require('path');
 
 const app = express();
+app.set('view engine', 'ejs');
+
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, 'views', 'home.html'));
+  response.render(path.join(__dirname, 'views', 'pages', 'home'));
 });
 
 app.get('/resume', (request, response) => {
@@ -50,7 +54,7 @@ app.get('/resum%C3%A9', (request, response) => {
 });
 
 function redirectToResume(response) {
-  response.redirect('/Brian+Morris+Resume.pdf');
+  response.redirect(resumePath);
 }
 
 exports.app = functions.https.onRequest(app);
