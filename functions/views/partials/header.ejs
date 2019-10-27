@@ -1,31 +1,38 @@
-<html lang="en"  xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Brian Morris</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> -->
-        <meta name="description" content="Systems Analyst, Software Engineer, 
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Brian Morris</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Systems Analyst, Software Engineer, 
             Web Developer, Hockey Player & Percussionist">
-        <meta name="keywords" content="Brian, Morris, Systems, Analyst, 
+    <meta name="keywords" content="Brian, Morris, Systems, Analyst, 
             Software, Engineer, Developer, Programmer, Web, Halton, Ontario, ON">
-        <meta name="robots" content="index, follow">
-        <meta name="author" content="Brian Morris">
-        <meta name="creator" content="Brian Morris">
-        <meta name="publisher" content="Brian Morris">
-        <meta name="DC.title" content="Acton, ON" />
-        <meta name="geo.region" content="CA-ON" />
-        <meta name="geo.placename" content="Acton" />
-        <meta name="geo.position" content="43.634068;-80.035112" />
-        <meta name="ICBM" content="43.634068, -80.035112" />
-        <link rel="shortcut icon" type="image/icon" href="img/b.ico" />
-        <link rel="stylesheet" type="text/css" href="style/main.css" />
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Brian Morris">
+    <meta name="creator" content="Brian Morris">
+    <meta name="publisher" content="Brian Morris">
+    <meta name="DC.title" content="Acton, ON" />
+    <meta name="geo.region" content="CA-ON" />
+    <meta name="geo.placename" content="Acton" />
+    <meta name="geo.position" content="43.634068;-80.035112" />
+    <meta name="ICBM" content="43.634068, -80.035112" />
 
-        <!-- https://necolas.github.io/normalize.css/ -->
-        <link rel="stylesheet" type="text/css" href="style/normalize.css" />
+    <link rel="shortcut icon" type="image/icon" href="img/b.ico" />
+    <link rel="stylesheet" type="text/css" href="style/main.css" />
+    <link rel="stylesheet" type="text/css" href="style/stars.css" />
 
-        <script src="js/polyfills.js"></script>
-        <script src="js/stars.js"></script>
-        <script type="application/ld+json">
+    <!-- https://necolas.github.io/normalize.css/ -->
+    <link rel="stylesheet" type="text/css" href="style/normalize.css" />
+
+    <script src="js/polyfills.js" defer></script>
+    <script src="js/stars.js" defer></script>
+
+    <!-- https://modernizr.com/ -->
+    <script src="js/modernizr-custom.js"></script>
+
+    <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "Organization",
@@ -34,19 +41,18 @@
                 "email": "contact@brianmorris.info"
             }
         </script>
-    </head>
-    <body>
-        <img id="profile" src="/img/Brian-Morris.jpg" alt="Brian's Profile" title="Brian Morris" />
-        <div id="background" class="fullScreen"></div>
-        <div id="lines"></div>
-        <canvas id="stars" class="fullScreen"></canvas>
-        <div id="trees"></div>
+</head>
 
-        <div id="socialLinksContainer">
-            <!-- <img class="socialLinkLogo" src="/img/logo/GitHub.svg" />
-            <img class="socialLinkLogo" src="/img/logo/LinkedIn.svg" />
-            <img class="socialLinkLogo" src="/img/logo/Instagram.svg" />
-            <img class="socialLinkLogo" src="/img/logo/Twitter.svg" /> -->
-        </div>
+<body>
+    <picture class="profile">
+        <source srcset="/img/WebP/Brian-Morris.webp" type="image/webp">
+        <img class="profile" src="/img/Brian-Morris.jpg" alt="Brian's Profile" title="Brian Morris" />
+    </picture>
+    <div id="background" class="fullScreen"></div>
+    <div id="lines" class="fullScreen"></div>
+    <canvas id="stars" class="fullScreen" width="100%" height="100%"></canvas>
+    <div id="trees" class="fullScreen"></div>
+    <div id="shadow" class="fullScreen"></div>
 
-        <div id="pageContent">
+    <div id="pageContent">
+        <div id="mainContent">

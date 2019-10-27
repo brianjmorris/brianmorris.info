@@ -2,114 +2,43 @@
 /* © Brian Morris 2019 | http://brianmorris.info */
 @font-face {
   font-family: 'Raleway';
-  src: url("Raleway/Raleway-Regular.ttf") format("truetype"); }
+  font-display: fallback;
+  src: url("Raleway/Raleway-Regular.ttf") format("truetype");
+}
 
-* {
-  -ms-overflow-style: none;
-  scrollbar-width: none; }
-
-*::-webkit-scrollbar {
-  display: none; }
-
-body,
-html {
-  z-index: 4;
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-  line-height: 1.5;
-  font-family: "Raleway", sans-serif;
-  color: #ECECEC; }
-
-#socialLinksContainer {
-  z-index: 999;
-  position: fixed;
-  right: 3%;
-  height: 100%;
-  width: 5%; }
-
-.socialLinkLogo {
-  display: block;
-  width: 100%;
-  margin-bottom: 30%; }
+.webp #trees {
+  background-image: url("../img/WebP/Trees.webp") !important;
+}
 
 #pageContent {
-  z-index: 999;
-  position: relative;
-  margin: 3%;
-  text-align: left;
-  color: #ECECEC;
-  max-width: 85%; }
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
 
 #footer {
   z-index: 999;
   position: fixed;
   bottom: 0;
-  padding: 8px;
   width: 100%;
-  text-align: center; }
+  height: 15%;
+  text-align: center;
+}
 
-.fullScreen {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%; }
+.socialLink {
+  display: inline-block;
+  height: 50%;
+  width: 20%;
+}
 
-#background {
-  background-color: #191919;
-  z-index: 0; }
+.socialLinkLogo {
+  max-height: 100%;
+  max-width: 100%;
+}
 
-#lines {
-  z-index: 1;
-  opacity: 0;
-  -webkit-transition: opacity 3s ease-in-out;
-  -moz-transition: opacity 3s ease-in-out;
-  -ms-transition: opacity 3s ease-in-out;
-  -o-transition: opacity 3s ease-in-out;
-  transition: opacity 3s ease-in-out; }
-
-.line {
-  z-index: 1; }
-
-#stars {
-  z-index: 2;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  -moz-transition: opacity 0.5s ease-in-out;
-  -ms-transition: opacity 0.5s ease-in-out;
-  -o-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out; }
-
-#trees {
-  opacity: 0;
-  z-index: 3;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/Trees.png");
-  background-attachment: fixed;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  -webkit-transition: opacity 3s ease-in-out;
-  -moz-transition: opacity 3s ease-in-out;
-  -ms-transition: opacity 3s ease-in-out;
-  -o-transition: opacity 3s ease-in-out;
-  transition: opacity 3s ease-in-out; }
-
-#profile {
+.profile {
   height: 0;
-  width: 0; }
+  width: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+}

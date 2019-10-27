@@ -4,7 +4,7 @@
   "description": "Personal website hosted with Firebase and NodeJS",
   "main": "index.js",
   "scripts": {
-    "transpileSASS": "node-sass ./style/main.scss ./public/style/main.css",
+    "transpileSASS": "node-sass --output-style=expanded ./style/main.scss ./public/style/main.css",
     "build": "npm run transpileSASS",
     "serve": "firebase serve -o 0.0.0.0",
     "buildAndServe": "npm run build && npm run serve",

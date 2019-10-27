@@ -1,22 +1,23 @@
 /* © Brian Morris 2019 | http://brianmorris.info */
 
 var starColour = "#FFFFFF"; // colour of stars
+var lineColour = "#555555"; // colour of lines
 var twinkleRatio = 0.10; // ratio to increase star size
 var twinkleLength = 200; // # of ms before stars return to normal size
 var twinkleIntervalTime = 300; // # ms between twinkling stars
-var lines = 5;
-var lineColour = "#AAAAAA"; // colour of lines
+var numConnectedStars = 5; // # of stars to draw lines between
+var canvasScale = 2; // update to scale canvas size
 var starSpacing = { // range of possible space between stars on x axis
-	min: 5,
-	max: 1200
+	min: 50,
+	max: 4000
 }
 var starSize = { // range of star radius
-	min: 0.1,
-	max: 0.4
+	min: 0.3,
+	max: 1
 }
 var linesLength = { // range of distance from star to mouse to draw lines
-	min: 40,
-	max: 120
+	min: 60,
+	max: 200
 }
 
 /* Global Vars */
@@ -29,17 +30,17 @@ var newStar;
 var twinkleInterval;
 var stars = [];
 var closeStars = [];
-var lineStars = [];
+var connectedStars = [];
 var currentLine = 0;
 var linesInterval;
-var setLineStarsInterval;
+var setConnectedStarsInterval;
 var fadeLinesTimeout;
 
 window.onload = function () {
-	for (var i = 0; i < lines; i++) {
+	for (var i = 0; i < numConnectedStars; i++) {
 		document.getElementById("lines").innerHTML += "<canvas id='line" +
-			i + "' class='fullscreen line' " + "style='animation: fade " +
-			randomInt(4, 6) + "s infinite;'>" + "</canvas>";
+			i + "' class='fullScreen line' " + "style='animation: fade " +
+			randomInt(4, 6) + "s infinite;' width='100%' height='100%'>" + "</canvas>";
 	}
 
 	setCanvases();
@@ -52,14 +53,14 @@ window.onload = function () {
 
 function setCanvases() {
 	starsCanvas = document.getElementById("stars");
-	starsCanvas.width = document.body.clientWidth;
-	starsCanvas.height = document.body.clientHeight;
+	starsCanvas.width = window.innerWidth * canvasScale;
+	starsCanvas.height = window.innerHeight * canvasScale;
 	starsContext = starsCanvas.getContext("2d");
 
-	for (var i = 0; i < lines; i++) {
+	for (var i = 0; i < numConnectedStars; i++) {
 		lineCanvases[i] = document.getElementById("line" + i);
-		lineCanvases[i].width = document.body.clientWidth;
-		lineCanvases[i].height = document.body.clientHeight;
+		lineCanvases[i].width = starsCanvas.width;
+		lineCanvases[i].height = starsCanvas.height;
 		lineContexts[i] = lineCanvases[i].getContext("2d");
 	}
 }
@@ -68,7 +69,7 @@ function resizeCanvases() {
 	clearTimeout(resizeTimeout);
 
 	stars = [];
-	lineStars = [];
+	connectedStars = [];
 	document.getElementById("lines").style.opacity = 0;
 	document.getElementById("stars").style.opacity = 0;
 
@@ -84,31 +85,33 @@ function setSpacing() {
 	var winWidth = document.body.clientWidth;
 
 	var starSpacing = { // range of possible space between stars on x axis
-		min: winWidth / 200,
+		min: (winWidth / 200) < 1000 ? 1000 : (winWidth / 200),
 		max: winWidth
 	}
 	var starSize = { // range of star radius
-		min: 0.0001 * winWidth,
-		max: 0.0005 * winWidth
+		min: (0.0001 * winWidth) < 0.3 ? 0.3 : (0.0001 * winWidth),
+		max: (0.0005 * winWidth) < 0.5 ? 0.5 : (0.0005 * winWidth)
 	}
 }
 
-function setLineStars() {
-	lineStars[currentLine] = closeStars[randomInt(0, closeStars.length - 1)];
+function setConnectedStars() {
+	connectedStars[currentLine] = closeStars[randomInt(0, closeStars.length - 1)];
 	currentLine++;
 
-	if (lines <= currentLine) {
+	if (numConnectedStars <= currentLine) {
 		currentLine = 0;
 	}
 }
 
 function drawLinesToMouse(e) {
-	drawLines(e.clientX, e.clientY);
+	drawLines((e.clientX * canvasScale), (e.clientY * canvasScale));
 }
 
 function drawLinesToFinger(e) {
 	var lastTouch = e.changedTouches[e.changedTouches.length - 1];
-	drawLines(lastTouch.pageX, lastTouch.pageY);
+	
+	drawLines((lastTouch.pageX * canvasScale), 
+		(lastTouch.pageY * canvasScale));
 }
 
 function drawLines(posX, posY) {
@@ -128,21 +131,21 @@ function drawLines(posX, posY) {
 			.max;
 	});
 
-	for (var i = 0; i < lines; i++) {
-		if (lineStars[i] && lineStars[i].x && lineStars[i].y) {
+	for (var i = 0; i < numConnectedStars; i++) {
+		if (connectedStars[i] && connectedStars[i].x && connectedStars[i].y) {
 			lineContexts[i].clearRect(0, 0, lineCanvases[i].width, lineCanvases[
 				i].height);
 			lineContexts[i].beginPath();
-			lineContexts[i].moveTo(lineStars[i].x, lineStars[i].y);
+			lineContexts[i].moveTo(connectedStars[i].x, connectedStars[i].y);
 			lineContexts[i].lineTo(posX, posY);
 			lineContexts[i].strokeStyle = lineColour;
 			lineContexts[i].stroke();
 
-			for (var j = 0; j < lines; j++) {
-				if (lineStars[j] && lineStars[j].x && lineStars[j].y) {
+			for (var j = 0; j < numConnectedStars; j++) {
+				if (connectedStars[j] && connectedStars[j].x && connectedStars[j].y) {
 					lineContexts[i].beginPath();
-					lineContexts[i].moveTo(lineStars[i].x, lineStars[i].y);
-					lineContexts[i].lineTo(lineStars[j].x, lineStars[j].y);
+					lineContexts[i].moveTo(connectedStars[i].x, connectedStars[i].y);
+					lineContexts[i].lineTo(connectedStars[j].x, connectedStars[j].y);
 					lineContexts[i].strokeStyle = lineColour;
 					lineContexts[i].stroke();
 				}
@@ -167,9 +170,9 @@ function drawStars() {
 		twinkleInterval = setInterval(function () {
 			twinkle();
 		}, twinkleIntervalTime);
-		clearInterval(setLineStarsInterval);
-		setLineStarsInterval = setInterval(function () {
-			setLineStars();
+		clearInterval(setConnectedStarsInterval);
+		setConnectedStarsInterval = setInterval(function () {
+			setConnectedStars();
 		}, 80);
 	}, 2000);
 }
