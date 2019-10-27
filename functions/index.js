@@ -1,5 +1,6 @@
 /* © Brian Morris 2019 | http://brianmorris.info */
 
+const jsonPath = '/brianmorris.json';
 const resumePath = '/Brian+Morris+Resume.pdf';
 
 const functions = require('firebase-functions');
@@ -11,6 +12,10 @@ app.set('view engine', 'ejs');
 
 app.get('/', (request, response) => {
   response.render(path.join(__dirname, 'views', 'pages', 'home'));
+});
+
+app.get('/json', (request, response) => {
+  response.redirect(jsonPath);
 });
 
 app.get('/resume', (request, response) => {
