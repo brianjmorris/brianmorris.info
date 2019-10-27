@@ -1,7 +1,7 @@
 /* © Brian Morris 2019 | http://brianmorris.info */
 
 const jsonPath = '/brianmorris.json';
-const resumePath = '/Brian+Morris+Resume.pdf';
+const resumePath = '/brianmorris.pdf';
 
 const functions = require('firebase-functions');
 const express = require('express');
@@ -16,6 +16,10 @@ app.get('/', (request, response) => {
 
 app.get('/json', (request, response) => {
   response.redirect(jsonPath);
+});
+
+app.get('/pdf', (request, response) => {
+  redirectToResume(response);
 });
 
 app.get('/resume', (request, response) => {
