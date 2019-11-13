@@ -4,14 +4,19 @@
   "description": "Personal website hosted with Firebase and NodeJS",
   "main": "index.js",
   "scripts": {
-    "transpileSASS": "node-sass --output-style=expanded ./style/main.scss ./public/style/main.css",
-    "build": "npm run transpileSASS",
+    "transpileSASS": "node-sass --output-style=expanded ./src/style/main.scss ./src/style/main.css",
+    "cleanCSS": "cleancss -o ./public/style/horizontal.css ./src/style/main.css ./src/style/stars.css",
+    "buildCSS": "npm run transpileSASS && npm run cleanCSS",
+    "buildJS": "uglifyjs -o ./public/js/horizontal.js ./src/js/polyfills.js ./src/js/main.js ./src/js/stars.js ./src/js/modernizr-custom.js",
+    "build": "npm run buildCSS && npm run buildJS",
     "serve": "firebase serve -o 0.0.0.0",
     "buildAndServe": "npm run build && npm run serve",
-    "test": "npm run serve"
+    "test": "npm run buildAndServe"
   },
   "devDependencies": {
-    "node-sass": "^4.13.0"
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.13.0",
+    "uglify-js": "^3.6.6"
   },
   "repository": {
     "type": "git",

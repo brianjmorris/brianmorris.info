@@ -19,28 +19,22 @@
     <meta name="geo.position" content="43.634068;-80.035112" />
     <meta name="ICBM" content="43.634068, -80.035112" />
 
-    <link rel="shortcut icon" type="image/icon" href="img/b.ico" />
-    <link rel="stylesheet" type="text/css" href="style/main.css" />
-    <link rel="stylesheet" type="text/css" href="style/stars.css" />
-
-    <!-- https://necolas.github.io/normalize.css/ -->
-    <link rel="stylesheet" type="text/css" href="style/normalize.css" />
-
-    <script src="js/polyfills.js" defer></script>
-    <script src="js/stars.js" defer></script>
-
-    <!-- https://modernizr.com/ -->
-    <script src="js/modernizr-custom.js"></script>
-
     <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "Brian Morris",
-                "url": "https://brianmorris.info",
-                "email": "contact@brianmorris.info"
-            }
-        </script>
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Brian Morris",
+            "url": "https://brianmorris.info",
+            "email": "contact@brianmorris.info"
+        }
+    </script>
+
+    <!-- <script src="js/merged.min.js"></script> -->
+    <script src="js/horizontal.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="style/merged.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="style/horizontal.css" />
+    <link rel="shortcut icon" type="image/icon" href="img/b.ico" defer />
 </head>
 
 <body>
@@ -48,11 +42,33 @@
         <source srcset="/img/WebP/Brian-Morris.webp" type="image/webp">
         <img class="profile" src="/img/Brian-Morris.jpg" alt="Brian's Profile" title="Brian Morris" />
     </picture>
+    
     <div id="background" class="fullScreen"></div>
     <div id="lines" class="fullScreen"></div>
     <canvas id="stars" class="fullScreen" width="100%" height="100%"></canvas>
     <div id="trees" class="fullScreen"></div>
     <div id="shadow" class="fullScreen"></div>
 
-    <div id="pageContent">
-        <div id="mainContent">
+    <header id="header" class="fadeInOut">
+        <div id="headerInfo">
+            <h1 id="headerTitle">
+                <a id="headerTitleLink" href="#stars" title="Just The Stars">Brian Morris</a>
+            </h1>
+            <div id="headerLocationInfo" class="fadeInOut">
+                <a href="https://goo.gl/maps/Cf6GVy2AGyNcvYT7A" target="_BLANK" title="View Halton Hills in Google Maps">
+                    Halton Hills, ON
+                </a>
+            </div>
+        </div>
+        
+        <nav id="mainMenu" class="fadeInOut">
+            <a href="#contact" id="contactNavItem" class="headerNavItem" title="View Contact Info">Contact</a>
+            <a href="#resume" id="resumeNavItem" class="headerNavItem" title="View Resume Info">Resume</a>
+            <a href="#education" id="educationNavItem" class="headerNavItem" title="View Education Info">Education</a>
+            <a href="#experience" id="experienceNavItem" class="headerNavItem" title="View Experience Info">Experience</a>
+            <a href="#involvement" id="involvementNavItem" class="headerNavItem" title="View Involvement Info">Involvement</a>
+            <a href="#skills" id="skillsNavItem" class="headerNavItem" title="View Skills Info">Skills</a>
+        </nav>
+    </header>
+
+    <main id="content" class="fadeInOut">

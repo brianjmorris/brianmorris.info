@@ -1,66 +1,66 @@
 {
-    "firstName" : "Brian",
-    "lastName" : "Morris",
-    "location" : "Halton Hills",
-    "phoneNumber" : "9056996466",
-    "email" : "contact@brianmorris.info",
-    "domain" : "brianmorris.info",
-    "education" : [
+    "firstName":"Brian",
+    "lastName":"Morris",
+    "location":"Halton Hills",
+    "phoneNumber":"9056996466",
+    "email":"contact@brianmorris.info",
+    "domain":"brianmorris.info",
+    "education":[
         {
-            "school" : "Algoma University",
-            "location" : "Sault Ste. Marie",
-            "degree" : "Bachelor of Computer Science",
-            "award" : "Award of Excellence in Computer Science",
-            "graduationYear" : "2019"
+            "school":"Algoma University",
+            "location":"Sault Ste. Marie",
+            "degree":"Bachelor of Computer Science",
+            "award":"Award of Excellence in Computer Science",
+            "graduationYear":"2019"
         },
         {
-            "school" : "Sheridan College",
-            "location" : "Brampton",
-            "degree" : "Systems Analyst Co-op Advanced Diploma",
-            "award" : "Capstone Competition Finalist",
-            "graduationYear" : "2018"
+            "school":"Sheridan College",
+            "location":"Brampton",
+            "degree":"Systems Analyst Co-op Advanced Diploma",
+            "award":"Capstone Competition Finalist",
+            "graduationYear":"2018"
         },
         {
-            "school" : "Acton District High School",
-            "location" : "Acton",
-            "degree" : "Ontario Secondary School Diploma",
-            "award" : "Ontario Scholar",
-            "graduationYear" : "2014"
+            "school":"Acton District High School",
+            "location":"Acton",
+            "degree":"Ontario Secondary School Diploma",
+            "award":"Ontario Scholar",
+            "graduationYear":"2014"
         }
     ],
-    "experience" : [
+    "experience":[
         {
-            "title" : "Computer Science Teaching Assistant",
-            "organization" : "Algoma University",
-            "location" : "Sault Ste. Marie",
-            "start" : "January 2019",
-            "end" : "April 2019",
-            "contributions" : [
+            "title":"Computer Science Teaching Assistant",
+            "organization":"Algoma University",
+            "location":"Sault Ste. Marie",
+            "start":"January 2019",
+            "end":"April 2019",
+            "contributions":[
                 "Courses: Java 2 and Data Structures 2",
-                "Fostered student growth, inspiration & leadershi",
+                "Fostered student growth, inspiration & leadership",
                 "Applied responsible time management in a lenient work environment",
                 "Developed solutions to improve faculty workflow efficiency",
                 "Lab instruction, student support, assignment marking & exam proctoring"
             ]
         },
         {
-            "title" : "PHP/Firebase Consultant & Developer",
-            "organization" : "Soo Food Finder -",
-            "location" : "Sault Ste. Marie",
-            "start" : "September 2018",
-            "end" : "November 2018",
-            "contributions" : [
+            "title":"PHP/Firebase Consultant & Developer",
+            "organization":"Soo Food Finder",
+            "location":"Sault Ste. Marie",
+            "start":"September 2018",
+            "end":"November 2018",
+            "contributions":[
                 "Implemented a dynamic content management interface for a restructured key-value Firebase database",
                 "Significantly improved administrators’ ability to address food justice and food access in Sault Ste. Marie"
             ]
         },
         {
-            "title" : "SharePoint Consultant & Developer",
-            "organization" : "Meridian Credit Union",
-            "location" : "Toronto, ON",
-            "start" : "September 2, 2017",
-            "end" : "December 2017",
-            "contributions" : [
+            "title":"SharePoint Consultant & Developer",
+            "organization":"Meridian Credit Union",
+            "location":"Toronto, ON",
+            "start":"September 2, 2017",
+            "end":"December 2017",
+            "contributions":[
                 "Designed and implemented a Learning Management System within Meridian’s intranet",
                 "Enabled every employee to pursue self learning",
                 "Implemented with 2 sites, few lists/libraries, CSS, JavaScript and SharePoint’s Client-Side Object Model",
@@ -68,26 +68,26 @@
             ]
         },
         {
-            "title" : "Junior Programmer Analyst Co-op",
-            "organization" : "Meridian Credit Union",
-            "location" : "Toronto, ON",
-            "start" : "January 4, 2016",
-            "end" : "September 1, 2017",
-            "terms" : [
-                { 
-                    "start" : "May 8, 2017",
-                    "end" : "September 1, 2017"
+            "title":"Junior Programmer Analyst Co-op",
+            "organization":"Meridian Credit Union",
+            "location":"Toronto, ON",
+            "start":"January 4, 2016",
+            "end":"September 1, 2017",
+            "terms":[
+                {
+                    "start":"May 8, 2017",
+                    "end":"September 1, 2017"
                 },
-                { 
-                    "start" : "August 29, 2016",
-                    "end" : "January 6, 2017"
+                {
+                    "start":"August 29, 2016",
+                    "end":"January 6, 2017"
                 },
-                { 
-                    "start" : "January 4, 2016",
-                    "end" : "May 9, 2016"
+                {
+                    "start":"January 4, 2016",
+                    "end":"May 9, 2016"
                 }
             ],
-            "contributions" : [
+            "contributions":[
                 "SharePoint administration and development",
                 "Set up SharePoint Team Sites and assisted in training for 30+ site owners from a variety of departments",
                 "Created custom site collection branding, timer jobs, event receivers, workflows and InfoPath forms",
@@ -95,106 +95,106 @@
             ]
         },
         {
-            "title" : "Summer Student",
-            "organization" : "Fiat Chrysler Automobiles Canada",
-            "location" : "Brampton, ON",
-            "start" : "May 2014",
-            "end" : "August 2015",
-            "contributions" : [
+            "title":"Summer Student",
+            "organization":"Fiat Chrysler Automobiles Canada",
+            "location":"Brampton, ON",
+            "start":"May 2014",
+            "end":"August 2015",
+            "contributions":[
                 "Exceptional work ethics, acute time management and teamwork"
             ]
         },
         {
-            "title" : "Landscaper",
-            "organization" : "Landscaping Services",
-            "location" : "Halton Hills",
-            "start" : "May 2015",
-            "end" : "June 2015",
-            "contributions" : [
+            "title":"Landscaper",
+            "organization":"Landscaping Services",
+            "location":"Halton Hills",
+            "start":"May 2015",
+            "end":"June 2015",
+            "contributions":[
                 "Effective communication skills, constant customer relations, efficiency"
             ]
         }
     ],
-    "communityInvolvement" : [
+    "communityInvolvement":[
         {
-            "organization" : "Acton Citizens' Band",
-            "title" : "Webmaster & Percussionist",
-            "start" : "September 2005",
-            "end" : "Present",
-            "contributions" : [
+            "organization":"Acton Citizens' Band",
+            "title":"Webmaster & Percussionist",
+            "start":"September 2005",
+            "end":"Present",
+            "contributions":[
                 "Webmaster, committee member, percussion, trumpet, clarinet",
                 "Performed in concerts and parades for charities and community benefits"
             ]
         },
         {
-            "organization" : "Algoma University Computer Science Club",
-            "title" : "Vice President",
-            "start" : "September 2018",
-            "end" : "April 2019",
-            "contributions" : [
+            "organization":"Algoma University Computer Science Club",
+            "title":"Vice President",
+            "start":"September 2018",
+            "end":"April 2019",
+            "contributions":[
                 "Encouraged interest, growth and enthusiasm in computer science and related fields",
                 "Planning, fundraising, organizing and hosting events"
             ]
         },
         {
-            "organization" : "Acton Junior Band",
-            "title" : "Mentor",
-            "start" : "September 2014",
-            "end" : "May 2016",
-            "contributions" : [
+            "organization":"Acton Junior Band",
+            "title":"Mentor",
+            "start":"September 2014",
+            "end":"May 2016",
+            "contributions":[
                 "Developed leadership and skills in music"
             ]
         },
         {
-            "organization" : "DementiaHack Toronto",
-            "title" : "Participant",
-            "start" : "November 7, 2015",
-            "end" : "November 9, 2015",
-            "contributions" : [
+            "organization":"DementiaHack Toronto",
+            "title":"Participant",
+            "start":"November 7, 2015",
+            "end":"November 9, 2015",
+            "contributions":[
                 "Assisted Dementia research through prototyping competition",
                 "Fast-paced teamwork and software/hardware experience"
             ]
         },
         {
-            "organization" : "Community Clean Up: Prospect Park",
-            "title" : "Assistant Organizer",
-            "start" : "October 3, 2015",
-            "end" : "October 3, 2015",
-            "contributions" : [
+            "organization":"Community Clean Up: Prospect Park",
+            "title":"Assistant Organizer",
+            "start":"October 3, 2015",
+            "end":"October 3, 2015",
+            "contributions":[
                 "Event coordination, project management",
                 "Dedicated environmental awareness"
             ]
         },
         {
-            "organization" : "Acton Houseleague Hockey",
-            "title" : "Assistant Coach",
-            "start" : "September 2013",
-            "end" : "March 2014",
-            "contributions" : [
+            "organization":"Acton Houseleague Hockey",
+            "title":"Assistant Coach",
+            "start":"September 2013",
+            "end":"March 2014",
+            "contributions":[
                 "Developed leadership and hockey skills in mature players"
             ]
         },
         {
-            "organization" : "Big Brothers Big Sisters of Halton Hills",
-            "title" : "Mentor",
-            "start" : "October 2010",
-            "end" : "May 2012",
-            "contributions" : [
+            "organization":"Big Brothers Big Sisters of Halton Hills",
+            "title":"Mentor",
+            "start":"October 2010",
+            "end":"May 2012",
+            "contributions":[
                 "Tutored and taught basic STEM and study skills"
             ]
         },
         {
-            "organization" : "Cancer Assistance Services of Halton Hills",
-            "title" : "Participant",
-            "start" : "April 2007",
-            "end" : "April 2008",
-            "contributions" : [
+            "organization":"Cancer Assistance Services of Halton Hills",
+            "title":"Participant",
+            "start":"April 2007",
+            "end":"April 2008",
+            "contributions":[
                 "Raised awareness, marketing distribution, promotion"
             ]
         }
     ],
-    "skills" : {
-        "experienced" : [
+    "skills":{
+        "experienced":[
             "C#, Entity Framework",
             "Cascading Style Sheets, CSS, CSS3",
             "Communication, Communicative",
@@ -218,7 +218,7 @@
             "Unified Modeling Language, UML",
             "Teamwork"
         ],
-        "intermediate" : [
+        "intermediate":[
             "ASP.NET, Active Server Pages, .NET, NET, Master Pages, API",
             "Assembly Language",
             "AWS S3, Lambda, CloudFront",
@@ -238,7 +238,7 @@
             "Technical Report Writing, Report Writing, Typing",
             "Visio, Visual Paradigm"
         ],
-        "fundamentals" : [
+        "fundamentals":[
             "Access",
             "Android",
             "Artificial Intelligence, AI",
