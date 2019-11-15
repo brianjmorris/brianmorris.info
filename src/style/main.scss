@@ -123,40 +123,11 @@ a, a:active, a:link, a:visited {
   width: 100%;
   padding-top: 10px;
   text-align: left;
-
-
-  @media (max-width: 599px), (max-height: 499px) {
-    overflow-x: scroll;
+  overflow-x: scroll;
 
     .infoItem {
       display: block;
     }
-  }
-  
-  @media (min-width: 600px) and (min-height: 500px) {
-      overflow-x: scroll;
-      overflow-y: hidden;
-
-      .infoItem {
-        display: inline-block;
-      }
-  
-      #education {
-          width: 250vh
-      }
-  
-      #experience {
-          width: 800vh
-      }
-  
-      #involvement {
-          width: 800vh
-      }
-  
-      #skills {
-          width: 300vh
-      }
-  }
 
   .infoSection {
     height: 90%;

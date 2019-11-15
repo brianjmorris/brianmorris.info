@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "transpileSASS": "node-sass --output-style=expanded ./src/style/main.scss ./src/style/main.css",
-    "cleanCSS": "cleancss -o ./public/style/horizontal.css ./src/style/main.css ./src/style/stars.css",
+    "cleanCSS": "cleancss -o ./public/style/merged.min.css ./src/style/main.css ./src/style/stars.css",
     "buildCSS": "npm run transpileSASS && npm run cleanCSS",
-    "buildJS": "uglifyjs -o ./public/js/horizontal.js ./src/js/polyfills.js ./src/js/main.js ./src/js/stars.js ./src/js/modernizr-custom.js",
+    "buildJS": "uglifyjs -o ./public/js/merged.min.js ./src/js/polyfills.js ./src/js/main.js ./src/js/stars.js ./src/js/modernizr-custom.js",
     "build": "npm run buildCSS && npm run buildJS",
     "serve": "firebase serve -o 0.0.0.0",
     "buildAndServe": "npm run build && npm run serve",

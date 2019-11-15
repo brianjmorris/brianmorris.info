@@ -117,37 +117,11 @@ a, a:active, a:link, a:visited {
   width: 100%;
   padding-top: 10px;
   text-align: left;
+  overflow-x: scroll;
 }
 
-@media (max-width: 599px), (max-height: 499px) {
-  #content {
-    overflow-x: scroll;
-  }
-  #content .infoItem {
-    display: block;
-  }
-}
-
-@media (min-width: 600px) and (min-height: 500px) {
-  #content {
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-  #content .infoItem {
-    display: inline-block;
-  }
-  #content #education {
-    width: 250vh;
-  }
-  #content #experience {
-    width: 800vh;
-  }
-  #content #involvement {
-    width: 800vh;
-  }
-  #content #skills {
-    width: 300vh;
-  }
+#content .infoItem {
+  display: block;
 }
 
 #content .infoSection {

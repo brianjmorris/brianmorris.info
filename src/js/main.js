@@ -17,31 +17,10 @@ window.onload = function () {
     initStars();
 
     mainContent = document.getElementById("content");
-    
-    window.addEventListener("wheel", horizontalScroll);
-	window.addEventListener("resize", windowResized, false);
 
     window.onhashchange = hashChange;
-
+    
     hashChange();
-    windowResized();
-}
-
-function windowResized(e) {
-    if(window.innerWidth < 600 || window.innerHeight < 500) {
-        mainContent.scrollLeft = 0;
-        window.removeEventListener("wheel", horizontalScroll);
-    } else {
-        mainContent.scrollTop = 0;
-        window.addEventListener("wheel", horizontalScroll);
-    }
-}
-
-function horizontalScroll(e) {
-    if (e.deltaY > 0)
-        mainContent.scrollLeft += 50;
-    else
-        mainContent.scrollLeft -= 50;
 }
 
 function hashChange() {

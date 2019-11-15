@@ -67,3 +67,5 @@ if (!Array.prototype.some) {
     return false;
   };
 }
+
+// TODO use HashChange polyfill?

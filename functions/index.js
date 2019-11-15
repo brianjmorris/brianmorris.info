@@ -11,6 +11,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', (request, response) => {
+  response.setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
   response.render(path.join(__dirname, 'views', 'pages', 'home'));
 });
 
@@ -104,6 +105,18 @@ app.get("/*resumé*", (request, response) => {
 
 app.get("/*resum%C3%A9*", (request, response) => {
   response.redirect(pdfResumePath);
+});
+
+app.get("/*star*", (request, response) => {
+  response.redirect("/#stars");
+});
+
+app.get("/*tree*", (request, response) => {
+  response.redirect("/#stars");
+});
+
+app.get("/*sky*", (request, response) => {
+  response.redirect("/#stars");
 });
 
 exports.app = functions.https.onRequest(app);

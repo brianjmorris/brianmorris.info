@@ -3,67 +3,72 @@
 // TODO make lines brighter on click?
 // 	- set to bright white and use opacity & transition in css to change colour
 
-// TODO set and reference a var isInitialized in initStars to prevent being initialized more than once
-
-var starColour = "#FFFFFF"; // colour of stars
-var lineColour = "#555555"; // colour of lines
-var twinkleRatio = 0.10; // ratio to increase star size
-var twinkleLength = 200; // # of ms before stars return to normal size
-var twinkleIntervalTime = 300; // # ms between twinkling stars
-var numConnectedStars = 5; // # of stars to draw lines between
-
-// TODO limit actual canvas resolution
 var canvasScale = 2; // update to scale canvas size
+var lineColour = "#555555"; // colour of lines
+var numConnectedStars = 5; // # of stars to draw lines between
+var starColour = "#FFFFFF"; // colour of stars
+var twinkleIntervalTime = 300; // # ms between twinkling stars
+var twinkleLength = 200; // # of ms before stars return to normal size
+var twinkleRatio = 0.10; // ratio to increase star size
 
-var starSpacing = { // range of possible space between stars on x axis
-	min: 50,
-	max: 4000
+var linesLength = { // range of distance from star to mouse to draw lines
+	min: 60,
+	max: 200
 }
 var starSize = { // range of star radius
 	min: 0.3,
 	max: 1
 }
-var linesLength = { // range of distance from star to mouse to draw lines
-	min: 60,
-	max: 200
+var starSpacing = { // range of possible space between stars on x axis
+	min: 50,
+	max: 4000
 }
 
 /* Global Vars */
-var starsCanvas;
-var starsContext;
+var connectedStars = []; // stars to draw lines between
+var currentLine = 0; // index of line moving to a new star
+var fadeLinesTimeout;
 var lineCanvases = [];
 var lineContexts = [];
+var nearbyStars = []; // stars near cursor
 var resizeTimeout;
-var newStar;
-var twinkleInterval;
-var stars = [];
-var closeStars = [];
-var connectedStars = [];
-var currentLine = 0;
-var linesInterval;
 var setConnectedStarsInterval;
-var fadeLinesTimeout;
+var stars = []; 
+var starsCanvas;
+var starsContext;
+var starsInitialized = false; // referenced in initStars() to prevent multiple executions
+var twinkleInterval;
 
 if(!window.onload) {
+	// if no onload function is defined, initialize the stars
 	window.onload = initStars;
 }
 
 function initStars() {
-	for (var i = 0; i < numConnectedStars; i++) {
-		document.getElementById("lines").innerHTML += "<canvas id='line" +
-			i + "' class='fullScreen line' " + "style='animation: fade " +
-			(4+i) + "s infinite;' width='100%' height='100%'>" + "</canvas>";
+	if(!starsInitialized) {
+		starsInitialized = true;
+
+		// print canvases for each star lines will be drawn to
+		for (var i = 0; i < numConnectedStars; i++) {
+			document.getElementById("lines").innerHTML += "<canvas id='line" +
+				i + "' class='fullScreen line' " + "style='animation: fade " +
+				(4+i) + "s infinite;' width='100%' height='100%'>" + "</canvas>";
+		}
+	
+		setCanvases();
+		drawStars();
+	
+		window.addEventListener("resize", resizeCanvases, false);
+
+		// fade in trees
+		document.getElementById("trees").style.opacity = 1;
 	}
-
-	setCanvases();
-	setSpacing();
-	drawStars();
-
-	window.addEventListener("resize", resizeCanvases, false);
-	document.getElementById("trees").style.opacity = 1;
 }
 
 function setCanvases() {
+	// TODO limit actual canvas resolution
+
+	// set the resolution of the canvases
 	starsCanvas = document.getElementById("stars");
 	starsCanvas.width = window.innerWidth * canvasScale;
 	starsCanvas.height = window.innerHeight * canvasScale;
@@ -78,6 +83,8 @@ function setCanvases() {
 }
 
 function resizeCanvases() {
+	// wait 1 second after window stops resizing
+	// then reset, adjust canvas resolutions and redraw
 	clearTimeout(resizeTimeout);
 
 	stars = [];
@@ -88,26 +95,15 @@ function resizeCanvases() {
 	resizeTimeout = setTimeout(function () {
 		document.getElementById("stars").style.opacity = 1;
 		setCanvases();
-		setSpacing();
 		drawStars();
 	}, 1000);
 }
 
-function setSpacing() {
-	var winWidth = document.body.clientWidth;
-
-	var starSpacing = { // range of possible space between stars on x axis
-		min: (winWidth / 200) < 1000 ? 1000 : (winWidth / 200),
-		max: winWidth
-	}
-	var starSize = { // range of star radius
-		min: (0.0001 * winWidth) < 0.3 ? 0.3 : (0.0001 * winWidth),
-		max: (0.0005 * winWidth) < 0.5 ? 0.5 : (0.0005 * winWidth)
-	}
-}
-
 function setConnectedStars() {
-	connectedStars[currentLine] = closeStars[randomInt(0, closeStars.length - 1)];
+	// select a new, nearby star for currentLine to connect to
+	// this function is called in fast intervals (<100ms)
+
+	connectedStars[currentLine] = nearbyStars[randomInt(0, nearbyStars.length - 1)];
 	currentLine++;
 
 	if (numConnectedStars <= currentLine) {
@@ -134,7 +130,7 @@ function drawLines(posX, posY) {
 		document.getElementById("lines").style.opacity = 0;
 	}, 2000);
 
-	closeStars = stars.filter(function (star) {
+	nearbyStars = stars.filter(function (star) {
 		xDistance = Math.abs(star.x - posX);
 		yDistance = Math.abs(star.y - posY);
 		distance = Math.sqrt(xDistance * xDistance + yDistance *
