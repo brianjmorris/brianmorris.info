@@ -1,4 +1,10 @@
-var mainContent;
+let headerTitleLink;
+let headerTitle;
+let headerLocationInfo;
+let mainMenu;
+let footer;
+let mainContent;
+
 var hashChanged = false;
 var foregroundHidden = true;
 var currentSection;
@@ -14,9 +20,14 @@ var hashEnum = {
   };
 
 window.onload = function () {
-    initStars();
-
+    headerTitle = document.getElementById("headerTitle");
+    headerTitleLink = document.getElementById("headerTitleLink");
+    headerLocationInfo = document.getElementById("headerLocationInfo");
+    mainMenu = document.getElementById("mainMenu");
     mainContent = document.getElementById("content");
+    footer = document.getElementById("footer");
+
+    initStars();
 
     window.onhashchange = hashChange;
     
@@ -76,24 +87,25 @@ function displaySection(sectionId) {
 
 function toggleForeground() {
     if(foregroundHidden) {
-        document.getElementById("headerTitleLink").href = "#stars";
-        document.getElementById("headerTitleLink").title = "Just The Stars";
+        headerTitleLink.href = "#stars";
+        headerTitleLink.title = "Just The Stars";
 
-        document.getElementById("headerTitle").style.opacity = "1";
-        document.getElementById("headerLocationInfo").style.opacity = "1";
-        document.getElementById("mainMenu").style.opacity = "1";
-        document.getElementById("footer").style.opacity = "1";
+        headerTitle.style.opacity = "1";
+        headerLocationInfo.style.opacity = "1";
+        mainMenu.style.opacity = "1";
+        footer.style.opacity = "1";
         mainContent.style.opacity = "1";
 
         foregroundHidden = false;
     } else {
-        document.getElementById("headerTitleLink").href = "#";
-        document.getElementById("headerTitleLink").title = "Show Content";
+        let newHash = currentSection ? currentSection.id : "";
+        headerTitleLink.href = "#" + newHash;
+        headerTitleLink.title = "Show Content";
 
-        document.getElementById("headerTitle").style.opacity = "0.1";
-        document.getElementById("headerLocationInfo").style.opacity = "0";
-        document.getElementById("mainMenu").style.opacity = "0";
-        document.getElementById("footer").style.opacity = "0";
+        headerTitle.style.opacity = "0.1";
+        headerLocationInfo.style.opacity = "0";
+        mainMenu.style.opacity = "0";
+        footer.style.opacity = "0";
         mainContent.style.opacity = "0";
 
         foregroundHidden = true;

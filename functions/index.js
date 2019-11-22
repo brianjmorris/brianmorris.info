@@ -2,6 +2,8 @@
 
 const jsonResumePath = '/brianmorris.json';
 const pdfResumePath = '/brianmorris.pdf';
+const vCardPath = '/brianmorris.vcf';
+const profilePath = '/img/Brian-Morris.jpg';
 
 const functions = require('firebase-functions');
 const express = require('express');
@@ -117,6 +119,34 @@ app.get("/*tree*", (request, response) => {
 
 app.get("/*sky*", (request, response) => {
   response.redirect("/#stars");
+});
+
+app.get("/*vcf*", (request, response) => {
+  response.redirect(vCardPath);
+});
+
+app.get("/*vcard*", (request, response) => {
+  response.redirect(vCardPath);
+});
+
+app.get("/*profile*", (request, response) => {
+  response.redirect(profilePath);
+});
+
+app.get("/*pic*", (request, response) => {
+  response.redirect(profilePath);
+});
+
+app.get("/*photo*", (request, response) => {
+  response.redirect(profilePath);
+});
+
+app.get("/*image*", (request, response) => {
+  response.redirect(profilePath);
+});
+
+app.get("/*face*", (request, response) => {
+  response.redirect(profilePath);
 });
 
 exports.app = functions.https.onRequest(app);

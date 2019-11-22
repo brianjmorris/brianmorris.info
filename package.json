@@ -16,7 +16,7 @@
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
     "node-sass": "^4.13.0",
-    "uglify-js": "^3.6.6"
+    "uglify-es": "^3.3.9"
   },
   "repository": {
     "type": "git",
