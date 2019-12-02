@@ -1,6 +1,7 @@
 /* © Brian Morris 2019 | http://brianmorris.info */
 
 const jsonResumePath = '/brianmorris.json';
+const docxResumePath = '/brianmorris.docx';
 const pdfResumePath = '/brianmorris.pdf';
 const vCardPath = '/brianmorris.vcf';
 const profilePath = '/img/Brian-Morris.jpg';
@@ -75,6 +76,26 @@ app.get("/*knowledge*", (request, response) => {
 
 app.get("/*json", (request, response) => {
   response.redirect(jsonResumePath);
+});
+
+app.get("/*doc*", (request, response) => {
+  response.redirect(docxResumePath);
+});
+
+app.get("/*office*", (request, response) => {
+  response.redirect(docxResumePath);
+});
+
+app.get("/*word*", (request, response) => {
+  response.redirect(docxResumePath);
+});
+
+app.get("/*ms*", (request, response) => {
+  response.redirect(docxResumePath);
+});
+
+app.get("/*microsoft*", (request, response) => {
+  response.redirect(docxResumePath);
 });
 
 app.get("/*pdf*", (request, response) => {
