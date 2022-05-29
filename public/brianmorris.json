@@ -23,7 +23,7 @@
             }
         ]
     },
-    "education":[
+    "education": [
         {
             "institution": "Algoma University",
             "url": "https://algomau.ca/",
@@ -69,14 +69,14 @@
       "issuer": "Microsoft",
       "url": "https://docs.microsoft.com/en-us/learn/certifications/exams/az-900"
     }],
-    "work":[
+    "work": [
         {
             "name": "Tata Consultancy Services",
             "position": "Big Data Analyst",
             "location": "Toronto",
             "url": "https://www.tcs.com/",
             "startDate": "2020-01-13",
-            "highlights":[
+            "highlights": [
                 "Segment lead on the Production Systems and Support team for TD's Big Data Platform (EDPP)",
                 "Supporting the transition of 400 ingestion sources from on-prem (Hadoop) to Azure (ADF/ADB/ADLS)"
             ]
@@ -88,7 +88,7 @@
             "url": "https://algomau.ca/",
             "startDate": "2019-01-04",
             "endDate": "2019-04-19",
-            "highlights":[
+            "highlights": [
                 "Courses: Java 2 and Data Structures 2",
                 "Fostered student growth, inspiration and leadership in 56 students",
                 "Applied responsible time management in a lenient work environment",
@@ -103,9 +103,9 @@
             "url": "http://foragingforfood.ca/",
             "startDate": "2018-09-15",
             "endDate": "2018-11-15",
-            "highlights":[
+            "highlights": [
                 "Implemented a dynamic content management interface for a restructured key-value Firebase database",
-                "Significantly improved administrators’ ability to address food justice and food access in Sault Ste. Marie"
+                "Significantly improved administrators' ability to address food justice and food access in Sault Ste. Marie"
             ]
         },
         {
@@ -115,10 +115,10 @@
             "url": "https://www.meridiancu.ca/",
             "startDate": "2017-09-02",
             "endDate": "2017-12-15",
-            "highlights":[
-                "Designed and implemented a Learning Management System within Meridian’s intranet",
+            "highlights": [
+                "Designed and implemented a Learning Management System within Meridian's intranet",
                 "Enabled every employee to pursue self learning",
-                "Implemented with 2 sites, few lists/libraries, CSS, JavaScript and SharePoint’s Client-Side Object Model",
+                "Implemented with 2 sites, few lists/libraries, CSS, JavaScript and SharePoint's Client-Side Object Model",
                 "Clean, intuitive design for end users and content management including featured and popular content"
             ]
         },
@@ -129,7 +129,7 @@
             "url": "https://www.meridiancu.ca/",
             "startDate": "2016-01-04",
             "endDate": "2017-09-01",
-            "terms":[
+            "terms": [
                 {
                     "startDate": "2017-05-08",
                     "endDate": "2017-09-01"
@@ -143,7 +143,7 @@
                     "endDate": "2016-05-09"
                 }
             ],
-            "highlights":[
+            "highlights": [
                 "SharePoint administration and development",
                 "Set up SharePoint Team Sites and assisted in training for 30+ site owners from a variety of departments",
                 "Created custom site collection branding, timer jobs, event receivers, workflows and InfoPath forms",
@@ -157,7 +157,7 @@
             "url": "https://www.stellantis.com/",
             "startDate": "2014-05-01",
             "endDate": "2015-08-31",
-            "highlights":[
+            "highlights": [
                 "Exceptional work ethics, acute time management and teamwork"
             ]
         },
@@ -167,18 +167,18 @@
             "location": "Halton Hills",
             "startDate": "2015-05-01",
             "endDate": "2015-05-30",
-            "highlights":[
+            "highlights": [
                 "Effective communication skills, constant customer relations, efficiency"
             ]
         }
     ],
-    "volunteer":[
+    "volunteer": [
         {
             "organization": "Acton Citizens' Band",
             "position": "Webmaster & Percussionist",
             "url": "https://actoncitizensband.ca/",
             "startDate": "2005-09-01",
-            "highlights":[
+            "highlights": [
                 "Webmaster, committee member, percussion, trumpet, clarinet",
                 "Performed in concerts and parades for charities and community benefits"
             ]
@@ -188,7 +188,7 @@
             "position": "Vice President",
             "startDate": "2018-09-01",
             "endDate": "2019-04-19",
-            "highlights":[
+            "highlights": [
                 "Encouraged interest, growth and enthusiasm in computer science and related fields",
                 "Planning, fundraising, organizing and hosting events"
             ]
@@ -196,9 +196,10 @@
         {
             "organization": "Acton Junior Band",
             "position": "Mentor",
+            "url": "https://actoncitizensband.ca/",
             "startDate": "2014-09-07",
             "endDate": "2016-05-31",
-            "highlights":[
+            "highlights": [
                 "Developed leadership and skills in music"
             ]
         },
@@ -208,7 +209,7 @@
             "url": "https://dementiahacktoronto2015.devpost.com/",
             "startDate": "2015-11-07",
             "endDate": "2015-11-09",
-            "highlights":[
+            "highlights": [
                 "Assisted Dementia research through prototyping competition",
                 "Fast-paced teamwork and software/hardware experience"
             ]
@@ -218,7 +219,7 @@
             "position": "Assistant Organizer",
             "startDate": "2015-10-03",
             "endDate": "2015-10-03",
-            "highlights":[
+            "highlights": [
                 "Event coordination, project management",
                 "Dedicated environmental awareness"
             ]
@@ -228,7 +229,7 @@
             "position": "Assistant Coach",
             "startDate": "2013-09-07",
             "endDate": "2014-03-20",
-            "highlights":[
+            "highlights": [
                 "Developed leadership and hockey skills in mature players"
             ]
         },
@@ -237,7 +238,7 @@
             "position": "Mentor",
             "startDate": "2010-10-01",
             "endDate": "2012-05-31",
-            "highlights":[
+            "highlights": [
                 "Tutored and taught basic STEM and study skills"
             ]
         },
@@ -246,12 +247,12 @@
             "position": "Participant",
             "startDate": "2007-04-01",
             "endDate": "2008-04-30",
-            "highlights":[
+            "highlights": [
                 "Promotion of awareness, marketing distribution"
             ]
         }
     ],
-    "skills":[
+    "skills": [
         {
             "level": "experienced",
             "keywords": [
