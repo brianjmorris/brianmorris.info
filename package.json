@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.1",
     "uglify-es": "^3.3.9"
   },
   "repository": {
@@ -38,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/brianjmorris/brianmorris.info/issues"
   },
-  "homepage": "https://github.com/brianjmorris/brianmorris.info#readme"
+  "homepage": "https://github.com/brianjmorris/brianmorris.info#readme",
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
 }
