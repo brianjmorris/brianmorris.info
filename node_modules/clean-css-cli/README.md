@@ -6,10 +6,9 @@
 </h1>
 
 [![NPM version](https://img.shields.io/npm/v/clean-css-cli.svg?style=flat)](https://www.npmjs.com/package/clean-css-cli)
-[![Linux Build Status](https://img.shields.io/travis/jakubpawlowicz/clean-css-cli/master.svg?style=flat&label=Linux%20build)](https://travis-ci.org/jakubpawlowicz/clean-css)
-[![Dependency Status](https://img.shields.io/david/jakubpawlowicz/clean-css-cli.svg?style=flat)](https://david-dm.org/jakubpawlowicz/clean-css-cli)
+![x86 Linux build](https://github.com/clean-css/clean-css-cli/workflows/x86%20Linux%20build/badge.svg)
+[![Dependency Status](https://img.shields.io/david/clean-css/clean-css-cli.svg?style=flat)](https://david-dm.org/clean-css/clean-css-cli)
 [![NPM Downloads](https://img.shields.io/npm/dm/clean-css-cli.svg)](https://www.npmjs.com/package/clean-css-cli)
-[![Twitter](https://img.shields.io/badge/Twitter-@cleancss-blue.svg)](https://twitter.com/cleancss)
 
 clean-css-cli is a command-line interface to [clean-css](https://github.com/jakubpawlowicz/clean-css) - fast and efficient CSS optimizer for [Node.js](http://nodejs.org/).
 
@@ -20,8 +19,13 @@ Previously a part of clean-css it's a separate package since clean-css 4.0.
 - [Node.js version support](#nodejs-version-support)
 - [Install](#install)
 - [Use](#use)
-  * [Important: 4.0 breaking changes](#important-40-breaking-changes)
+  * [What's new in version 5.5](#whats-new-in-version-55)
+  * [What's new in version 5.1](#whats-new-in-version-51)
+  * [What's new in version 5.0](#whats-new-in-version-50)
+  * [What's new in version 4.3](#whats-new-in-version-43)
+  * [What's new in version 4.2](#whats-new-in-version-42)
   * [What's new in version 4.1](#whats-new-in-version-41)
+  * [What's new in version 4.0](#whats-new-in-version-40)
   * [CLI options](#cli-options)
   * [Compatibility modes](#compatibility-modes)
   * [Formatting options](#formatting-options)
@@ -33,6 +37,7 @@ Previously a part of clean-css it's a separate package since clean-css 4.0.
   * [As a module](#as-a-module)
 - [FAQ](#faq)
   * [How to optimize multiple files?](#how-to-optimize-multiple-files)
+  * [How to process multiple files without concatenating them into one output file?](#how-to-process-multiple-files-without-concatenating-them-into-one-output-file)
   * [How to specify a custom rounding precision?](#how-to-specify-a-custom-rounding-precision)
   * [How to rebase relative image URLs?](#how-to-rebase-relative-image-urls)
   * [How to apply level 1 & 2 optimizations at the same time?](#how-to-apply-level-1--2-optimizations-at-the-same-time)
@@ -42,7 +47,7 @@ Previously a part of clean-css it's a separate package since clean-css 4.0.
 
 # Node.js version support
 
-clean-css-cli requires Node.js 4.0+ (tested on Linux, OS X, and Windows)
+clean-css-cli requires Node.js 10.0+ (tested on Linux)
 
 # Install
 
@@ -57,7 +62,54 @@ Note: Global install via -g option is recommended unless you want to execute the
 cleancss -o one.min.css one.css
 ```
 
-## Important: 4.0 breaking changes
+## What's new in version 5.5
+
+clean-css-cli 5.5 introduces the following changes / features:
+
+* adds a new `--watch` switch, which makes `cleancss` re-run optimizations when watched file(s) change.
+
+## What's new in version 5.1
+
+clean-css-cli 5.1 introduces the following changes / features:
+
+* accept `!path/to/file` as a way of telling `cleancss` to ignore such file, also accepts any available glob patterns.
+
+## What's new in version 5.0
+
+clean-css-cli 5.0 introduces the following changes / features:
+
+* adds `--batch` option (off by default) which processes input files one by one without joining them together;
+* adds `--batch-suffix` option to specify what gets appended to output filename in batch mode;
+* automatically creates missing output directories;
+* clean-css 5.0 with loads of bugfixes;
+* drops official support for Node.js 4, 6, and 8;
+* `--skip-rebase` option has been removed as rebasing URLs is disabled by default now
+* `--with-rebase` option is added if you really want URLs rebasing
+
+## What's new in version 4.3
+
+clean-css-cli 4.3 introduces the following changes / features:
+
+* `--input-source-map` option which accepts a path to input source map file.
+
+## What's new in version 4.2
+
+clean-css-cli 4.2 introduces the following changes / features:
+
+* [clean-css 4.2](https://github.com/jakubpawlowicz/clean-css#whats-new-in-version-42) as a dependency;
+
+## What's new in version 4.1
+
+clean-css-cli 4.1 introduces the following changes / features:
+
+* [clean-css 4.1](https://github.com/jakubpawlowicz/clean-css#whats-new-in-version-41) as a dependency;
+* `--remove-inlined-files` option for removing files inlined in <source-file ...> or via `@import` statements;
+* adds glob pattern matching to source paths, see [example](#how-to-optimize-multiple-files);
+* allows non-boolean compatibility options, e.g. `--compatibility selectors.mergeLimit=512`;
+* extracts CLI into an importable module, so it can be reused and enhanced if needed;
+* adds `beforeMinify` callback as a second argument to CLI module, see [example use case](#as-a-module).
+
+## What's new in version 4.0
 
 clean-css-cli 4.0 introduces some breaking changes:
 
@@ -75,34 +127,24 @@ clean-css-cli 4.0 introduces some breaking changes:
 * `--keep-breaks` option is replaced with `--format keep-breaks` to ease transition;
 * `--skip-aggressive-merging` option is removed as aggressive merging is replaced by smarter override merging.
 
-## What's new in version 4.1
-
-clean-css-cli 4.1 introduces the following changes / features:
-
-* [clean-css 4.1](https://github.com/jakubpawlowicz/clean-css#whats-new-in-version-41) as a dependency;
-* `--remove-inlined-files` option for removing files inlined in <source-file ...> or via `@import` statements;
-* adds glob pattern matching to source paths, see [example](#how-to-optimize-multiple-files);
-* allows non-boolean compatibility options, e.g. `--compatibility selectors.mergeLimit=512`;
-* extracts CLI into an importable module, so it can be reused and enhanced if needed;
-* adds `beforeMinify` callback as a second argument to CLI module, see [example use case](#as-a-module).
-
 ## CLI options
 
 ```shell
--h, --help                     output usage information
--v, --version                  output the version number
+-b, --batch                    If enabled, optimizes input files one by one instead of joining them together
 -c, --compatibility [ie7|ie8]  Force compatibility mode (see Readme for advanced examples)
 -d, --debug                    Shows debug information (minification time & compression efficiency)
 -f, --format <options>         Controls output formatting, see examples below
+-h, --help                     output usage information
 -o, --output [output-file]     Use [output-file] as output instead of STDOUT
--O <n> [optimizations]         Turn on level <n> optimizations; optionally accepts a list of fine-grained options, defaults to `1`, see examples below
+-O <n> [optimizations]         Turn on level <n> optimizations; optionally accepts a list of fine-grained options, defaults to `1`, IMPORTANT: the prefix is O (a capital o letter), NOT a 0 (zero, a number)
+-v, --version                  output the version number
 --inline [rules]               Enables inlining for listed sources (defaults to `local`)
 --inline-timeout [seconds]     Per connection timeout when fetching remote stylesheets (defaults to 5 seconds)
+--input-source-map [file]      Specifies the path of the input source map file
 --remove-inlined-files         Remove files inlined in <source-file ...> or via `@import` statements
---skip-rebase                  Disable URLs rebasing
 --source-map                   Enables building input's source map
 --source-map-inline-sources    Enables inlining sources inside source maps
---input-source-map [file]      Specifies the path of the input source map file
+--with-rebase                  Enables URLs rebasing
 ```
 
 ## Compatibility modes
@@ -203,15 +245,17 @@ cleancss --inline 'local,remote,!fonts.googleapis.com' one.css
 
 ## Optimization levels
 
-The `--level` option can be either `0`, `1` (default), or `2`, e.g.
+The `-O` option can be either `0`, `1` (default), or `2`, e.g.
 
 ```shell
-cleancss --level 2 one.css
+cleancss -O2 one.css
 ```
 
 or a fine-grained configuration given via a string.
 
 Please note that level 1 optimization options are generally safe while level 2 optimizations should be safe for most users.
+
+Important: The `-O` option is using the capital letter O (as in "Oscar"), not the number zero.
 
 ### Level 0 optimizations
 
@@ -300,12 +344,20 @@ clean-css-cli can also be used as a module in a way of enhancing its functionali
 
 var cleanCssCli = require('clean-css-cli');
 
-return cleanCssCli(process, function beforeMinify(cleanCss) {
-  cleanCss.options.level['1'].transform = function (propertyName, propertyValue) {
-    if (propertyName == 'background-image' && propertyValue.indexOf('../valid/path/to') == -1) {
-      return propertyValue.replace('url(', 'url(../valid/path/to/');
+var customPlugin = {
+  level1: {
+    value: function (propertyName, propertyValue, options) {
+      if (propertyName == 'background-image' && propertyValue.indexOf('../valid/path/to') == -1) {
+        return propertyValue.replace('url(', 'url(../valid/path/to/');
+      } else {
+        return propertyValue;
+      }
     }
   }
+}
+
+return cleanCssCli(process, function (cleanCss) {
+  cleanCss.options.plugins.level1Value.push(customPlugin.level1.value);
 });
 ```
 
@@ -327,6 +379,36 @@ Since version 4.1.0 it can also be done using glob pattern matching, e.g.
 cleancss -o merged.min.css *.css
 ```
 
+## How to process multiple files without concatenating them into one output file?
+
+Since clean-css-cli 5.0 you can optimize files one by one, without joining them into one output file, e.g.
+
+```shell
+cleancss --batch styles/*.css
+```
+
+By default it will pick up every single file from `styles` directory, optimize it, add a `-min` suffix to filename (before extension), and write it to disk.
+
+You can use `--batch-suffix` option to customize the `-min` suffix, e.g.
+
+```shell
+cleancss --batch --batch-suffix '.min' styles/*.css # output will have `.min` suffix before `.css`, e.g. styles.min.css
+```
+
+or
+
+```shell
+cleancss --batch --batch-suffix '' styles/*.css # output files will OVERRIDE input files
+```
+
+Remember you can use [glob matching](https://www.npmjs.com/package/glob#glob-primer) to match exactly the files you want.
+
+Since clean-css-cli 5.1 you can also use a negated pattern to exclude some files from being matched, e.g.
+
+```shell
+cleancss --batch styles/*.css !styles/*.min.css
+```
+
 ## How to specify a custom rounding precision?
 
 The level 1 `roundingPrecision` optimization option accept a string with per-unit rounding precision settings, e.g.
@@ -339,7 +421,7 @@ which sets all units rounding precision to 3 digits except `px` unit precision o
 
 ## How to rebase relative image URLs?
 
-clean-css-cli will handle it automatically for you when full paths to input files are passed in and `--output` option is used, e.g
+clean-css-cli will rebase paths it automatically for you when full paths to input files are passed, and `--with-rebase` & `--output` options are used, e.g
 
 ```css
 /*! one.css */
@@ -349,7 +431,7 @@ a {
 ```
 
 ```shell
-cleancss -o build/one.min.css one.css
+cleancss --with-rebase -o build/one.min.css one.css
 ```
 
 ```css
@@ -369,14 +451,14 @@ will apply level 1 optimizations, except url normalization, and default level 2 
 
 # Contributing
 
-See [CONTRIBUTING.md](https://github.com/jakubpawlowicz/clean-css-cli/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING.md](https://github.com/clean-css/clean-css-cli/blob/master/CONTRIBUTING.md).
 
 ## How to get started?
 
 First clone the sources:
 
 ```shell
-git clone git@github.com:jakubpawlowicz/clean-css-cli.git
+git clone git@github.com:clean-css/clean-css-cli.git
 ```
 
 then install dependencies:
@@ -395,4 +477,4 @@ npm test # to run all tests
 
 # License
 
-clean-css-cli is released under the [MIT License](https://github.com/jakubpawlowicz/clean-css-cli/blob/master/LICENSE).
+clean-css-cli is released under the [MIT License](https://github.com/clean-css/clean-css-cli/blob/master/LICENSE).
