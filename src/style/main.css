@@ -1,26 +1,26 @@
 @charset "UTF-8";
 /* © Brian Morris 2019 | http://brianmorris.info */
 @font-face {
-  font-family: 'Raleway';
+  font-family: 'Montserrat';
   font-display: fallback;
   unicode-range: U+0-5A, U+61-7A;
-  src: url("/style/Raleway/Raleway-Regular.ttf") format("truetype");
+  src: url("/style/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Raleway';
+  font-family: 'Montserrat';
   font-display: fallback;
   unicode-range: U+0-5A, U+61-7A;
-  src: url("/style/Raleway/Raleway-Light.ttf") format("truetype");
+  src: url("/style/Montserrat/static/Montserrat-Light.ttf") format("truetype");
   font-weight: lighter;
   font-style: normal;
 }
 
 body,
 html {
-  font-family: "Raleway", Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 3vh;
   font-weight: lighter;
   font-style: normal;
