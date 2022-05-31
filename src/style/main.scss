@@ -35,7 +35,7 @@ $background-color: #191919;
 body,
 html {
   font-family: $font-stack;
-  font-size: 3vh;
+  font-size: 16px;
   font-weight: lighter;
   font-style: normal;
   line-height: 1.5;
@@ -121,34 +121,45 @@ a, a:active, a:link, a:visited {
   position: fixed;
   top: 7.5vw;
   bottom: 15%;
-  width: 100%;
-  padding-top: 10px;
+  left: 0;
+  right: 0;
+  margin: 2vw;
   text-align: left;
   overflow-x: scroll;
 
-    .infoItem {
-      display: block;
-    }
+  #contact,
+  #resume {
+    font-size: 1.3rem;
+  }
 
   .infoSection {
-    height: 90%;
-    max-height: 90%;
-    margin: 0 8px;
-    padding: 0 8vw;
-    padding: 0 8%;
     opacity: 1;
     vertical-align: top;
-    min-width: 90vw;
+    height: 100%;
   
     .infoSectionTitle {
+      display: none;
       margin: 10px 0;
     }
 
-    .infoItem {
-      padding: 1vw;
-      vertical-align: top;
-      max-width: 90vw;
-      margin: 0 1vh;
+    .infoFlexContainer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: center;
+      min-height: 100%;
+    }
+
+    .infoFlexItem {
+      flex: 1;
+      flex-shrink: 1;
+      flex-grow: 1;
+      flex-basis: 30%;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid #ececec;
+      padding: 1.5vw;
+      margin: 2vw;
     
       .infoItemTitle {
         font-weight: bold;
@@ -158,6 +169,14 @@ a, a:active, a:link, a:visited {
         padding: 1vw;
       }
     }
+
+    
+
+  }
+  
+  #contact .infoFlexItem,
+  #resume .infoFlexItem {
+    text-align: center;
   }
 }
 
