@@ -4,6 +4,7 @@ let headerLocationInfo;
 let mainMenu;
 let footer;
 let mainContent;
+let defaultHashValue = "contact";
 
 var hashChanged = false;
 var foregroundHidden = true;
@@ -32,11 +33,11 @@ window.onload = function () {
     window.onhashchange = hashChange;
     
     hashChange();
-}
+};
 
 function hashChange() {
     if(location.hash == "") {
-        displaySection("contact");
+        displaySection(defaultHashValue);
     } else {
         var hashValue = location.hash.toLowerCase().substring(1);
         var hashNum = hashEnum[hashValue];
@@ -58,15 +59,17 @@ function hashChange() {
         }
         
         if(invalidHash) {
-            console.error("Invalid hash value");
-            console.log("Hash options:", Object.keys(hashEnum))
+            console.log("Invalid hash value: " + hashValue);
+            console.log("Hash options:", Object.keys(hashEnum));
+            location.hash = "";
+            displaySection(defaultHashValue);
         }
     }
 }
 
 function displaySection(sectionId) {
     if(!sectionId) {
-        sectionId = "contact";
+        sectionId = defaultHashValue;
     }
 
     location.hash = sectionId;

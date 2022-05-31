@@ -1,4 +1,4 @@
-/* © Brian Morris 2019 | http://brianmorris.info */
+/* © Brian Morris 2022 | http://brianmorris.info */
 
 const jsonResumePath = '/brianmorris.json';
 const docxResumePath = '/brianmorris.docx';
@@ -168,6 +168,10 @@ app.get("/*image*", (request, response) => {
 
 app.get("/*face*", (request, response) => {
   response.redirect(profilePath);
+});
+
+app.get("/*", (request, response) => {
+  response.redirect("/#contact");
 });
 
 exports.app = functions.https.onRequest(app);
