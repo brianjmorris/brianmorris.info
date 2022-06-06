@@ -50,9 +50,10 @@ function initStars() {
 
 		// print canvases for each star lines will be drawn to
 		for (var i = 0; i < numConnectedStars; i++) {
-			document.getElementById("lines").innerHTML += "<canvas id='line" +
-				i + "' class='fullScreen line' " + "style='animation: fade " +
-				(4+i) + "s infinite;' width='100%' height='100%'>" + "</canvas>";
+			document.getElementById("lines").innerHTML += "<canvas id='line-" +
+				i + "' class='full-screen line' " + "style='animation: fade " +
+				(4+i) + "s infinite;' width='100%' height='100%' alt=''>" + 
+				"</canvas>";
 		}
 	
 		setCanvases();
@@ -75,7 +76,7 @@ function setCanvases() {
 	starsContext = starsCanvas.getContext("2d");
 
 	for (var i = 0; i < numConnectedStars; i++) {
-		lineCanvases[i] = document.getElementById("line" + i);
+		lineCanvases[i] = document.getElementById("line-" + i);
 		lineCanvases[i].width = starsCanvas.width;
 		lineCanvases[i].height = starsCanvas.height;
 		lineContexts[i] = lineCanvases[i].getContext("2d");
