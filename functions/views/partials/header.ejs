@@ -19,40 +19,46 @@
     <meta name="geo.position" content="43.634068;-80.035112" />
     <meta name="ICBM" content="43.634068, -80.035112" />
 
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PV2D2ML');
-    </script>
-    <!-- End Google Tag Manager -->
+    <!--[if !IE]><!-->
+        <!-- Google Tag Manager -->
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-PV2D2ML');
+        </script>
+        <!-- End Google Tag Manager -->
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35708086-2"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35708086-2"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'UA-35708086-2');
-    </script>
-    <!-- End Global site tag (gtag.js) - Google Analytics -->
+        gtag('config', 'UA-35708086-2');
+        </script>
+        <!-- End Global site tag (gtag.js) - Google Analytics -->
 
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Brian Morris",
-            "url": "https://brianmorris.info",
-            "email": "contact@brianmorris.info"
-        }
-    </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Brian Morris",
+                "url": "https://brianmorris.info",
+                "email": "contact@brianmorris.info"
+            }
+        </script>
+        
+        <link rel="stylesheet" type="text/css" href="style/merged.min.css" />
+        <script src="js/merged.min.js"></script>
+    <!--<![endif]-->
 
-    <script src="js/merged.min.js"></script>
+    <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="style/plain.min.css" />
+    <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="style/merged.min.css" />
     <link rel="shortcut icon" type="image/icon" href="img/b.ico" defer />
 </head>
 
@@ -67,26 +73,38 @@
         <img class="profile" src="/img/Brian-Morris.jpg" alt="Brian's Profile" title="Brian Morris" style="max-width: 200px;" />
     </picture>
 
-    <header id="header" class="fadeInOut">
-        <div id="headerInfo">
-            <h1 id="headerTitle">
-                <a id="headerTitleLink" href="#stars" title="Just The Stars">Brian Morris</a>
+    <header id="header" class="fade-in-out">
+        <div id="header-info">
+            <h1 id="header-title">
+                <a id="header-title-link" href="#stars" title="Watch the stars">Brian Morris</a>
             </h1>
-            <div id="headerLocationInfo" class="fadeInOut">
-                <a href="https://goo.gl/maps/Cf6GVy2AGyNcvYT7A" target="_BLANK" title="View Halton Hills in Google Maps">
+            <div id="header-location-info" class="fade-in-out">
+                <a id="header-location-info-link" href="https://goo.gl/maps/Cf6GVy2AGyNcvYT7A" target="_BLANK" title="View Halton Hills in Google Maps">
                     Halton Hills, ON
                 </a>
             </div>
         </div>
         
-        <nav id="mainMenu" class="fadeInOut">
-            <a href="#contact" id="contactNavItem" class="headerNavItem" title="View Contact Info">Contact</a>
-            <a href="#resume" id="resumeNavItem" class="headerNavItem" title="View Resume Info">Resume</a>
-            <a href="#education" id="educationNavItem" class="headerNavItem" title="View Education Info">Education</a>
-            <a href="#experience" id="experienceNavItem" class="headerNavItem" title="View Experience Info">Experience</a>
-            <a href="#involvement" id="involvementNavItem" class="headerNavItem" title="View Involvement Info">Involvement</a>
-            <a href="#skills" id="skillsNavItem" class="headerNavItem" title="View Skills Info">Skills</a>
+        <nav id="header-nav" class="fade-in-out" aria-label="Primary">
+			<h2 class="hidden">Menu</h2>
+            <a href="#contact" id="contact-header-nav-item" class="header-nav-item" title="View Contact Info">Contact</a>
+            <a href="#resume" id="resume-header-nav-item" class="header-nav-item" title="View Resume Info">Resume</a>
+            <a href="#education" id="education-header-nav-item" class="header-nav-item" title="View Education Info">Education</a>
+            <a href="#experience" id="experience-header-nav-item" class="header-nav-item" title="View Experience Info">Experience</a>
+            <a href="#involvement" id="involvement-header-nav-item" class="header-nav-item" title="View Involvement Info">Involvement</a>
+            <a href="#skills" id="skills-header-nav-item" class="header-nav-item" title="View Skills Info">Skills</a>
         </nav>
+
+        <a id="mobile-menu-button" href="#menu" class="fade-in-out">
+            <svg id="mobile-menu-button-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550">
+                <title>Menu Button</title>
+                <g id="mobile-menu-button-rect-group">
+                    <rect class="mobile-menu-button-rect" x="125" y="0" width="750" height="50" rx="24.5"/>
+                    <rect class="mobile-menu-button-rect" x="125" y="250" width="750" height="50" rx="24.5"/>
+                    <rect class="mobile-menu-button-rect" x="125" y="500" width="750" height="50" rx="24.5"/>
+                </g>
+            </svg>
+        </a>
     </header>
 
-    <main id="content" class="fadeInOut">
+    <main id="content" class="fade-in-out">

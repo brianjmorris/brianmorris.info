@@ -1,71 +1,82 @@
 <%- include('../partials/header'); %>
+        
+		<nav id="menu" class="mobile-menu flex-container hidden" aria-label="Mobile">
+			<h2 class="info-section-title hidden">Menu</h2>
+			<a href="#contact" id="contact-mobile-nav-link" class="flex-item" title="View Contact Info">Contact</a>
+			<a href="#resume" id="resume-mobile-nav-link" class="flex-item" title="View Resume Info">Resume</a>
+			<a href="#education" id="education-mobile-nav-link" class="flex-item" title="View Education Info">Education</a>
+			<a href="#experience" id="experience-mobile-nav-link" class="flex-item" title="View Experience Info">Experience</a>
+			<a href="#involvement" id="involvement-mobile-nav-link" class="flex-item" title="View Involvement Info">Involvement</a>
+			<a href="#skills" id="skills-mobile-nav-link" class="flex-item" title="View Skills Info">Skills</a>
+			<a href="#stars" id="skills-mobile-nav-link" class="flex-item" title="Watch the stars">Stars</a>
+		</nav>
 
-		<section id="contact" class="infoSection hidden">
-			<h2 class="infoSectionTitle">Contact</h2>
-			<address id="address" class="infoFlexContainer">
+		<section id="contact" class="info-section hidden">
+			<h2 class="info-section-title">Contact</h2>
+			<address id="address" class="flex-container">
 				<span style="display: none;">
 					Brian Morris<br>
 					<a href="https://goo.gl/maps/Cf6GVy2AGyNcvYT7A" title="View Halton Hills in Google Maps">
 						Halton Hills, ON
 					</a><br>
 				</span>
-				<a class="infoFlexItem" href="tel:9058058318" title="Call Brian">(905) 805-8318</a>
-				<a class="infoFlexItem" href="mailto:contact@brianmorris.info" title="Email Brian">contact@brianmorris.info</a>
+				<a class="flex-item" href="tel:9058058318" title="Call Brian">(905) 805-8318</a>
+				<a class="flex-item" href="mailto:contact@brianmorris.info" title="Email Brian">contact@brianmorris.info</a>
+				<a class="flex-item" href="/VCF" target="_BLANK" title="Add Brian as a contact (VCF)">Add Contact</a>
 			</address>
 			<br class="hidden">
 		</section>
 		
-		<section id="resume" class="infoSection hidden">
-			<h2 class="infoSectionTitle">Resume</h2>
-			<div class="infoFlexContainer">
-				<a class="infoFlexItem" href="/DOCX" target="_BLANK" title="Download Brian's Resume as DOCX">DOCX</a>
-				<a class="infoFlexItem" href="/PDF" target="_BLANK" title="View Brian's Resume as PDF">PDF</a>
-				<a class="infoFlexItem" href="/JSON" target="_BLANK" title="View Brian's Resume as JSON">JSON</a>
-				<a class="infoFlexItem" href="/VCF" target="_BLANK" title="Download Brian's vCard">VCF</a>
+		<section id="resume" class="info-section hidden">
+			<h2 class="info-section-title">Resume</h2>
+			<div class="flex-container">
+				<a class="flex-item" href="/DOCX" target="_BLANK" title="Download Brian's Resume as DOCX">DOCX</a>
+				<a class="flex-item" href="/PDF" target="_BLANK" title="View Brian's Resume as PDF">PDF</a>
+				<!-- <a class="flex-item" href="/JSON" target="_BLANK" title="View Brian's Resume as JSON">JSON</a> -->
 			</div>
 			<br class="hidden">
 		</section>
 		
-		<section id="education" class="infoSection hidden">
-			<h2 class="infoSectionTitle">Education</h2>
-			<div class="infoFlexContainer">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+		<section id="education" class="info-section hidden">
+			<h2 class="info-section-title">Education</h2>
+			<div class="flex-container">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Bachelor of Computer Science
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Algoma University<br>
 						Sault Ste. Marie, ON<br>
 						2018 - 2019<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Award of Excellence in Computer Science</li>
 						</ul>
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Systems Analyst Co-op Advanced Diploma
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Sheridan College<br>
 						Brampton, ON<br>
 						2014 - 2018<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Capstone Competition Finalist</li>
 						</ul>
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Ontario Secondary School Diploma
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Acton District High School<br>
 						Acton, ON<br>
 						2010 - 2014<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Ontario Scholar</li>
 						</ul>
 					</div>
@@ -74,18 +85,18 @@
 			<br class="hidden">
 		</section>
 		
-		<section id="experience" class="infoSection hidden">
-			<h2 class="infoSectionTitle">Experience</h2>
-			<div class="infoFlexContainer">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+		<section id="experience" class="info-section hidden">
+			<h2 class="info-section-title">Experience</h2>
+			<div class="flex-container">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Computer Science Teaching Assistant
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Algoma University<br>
 						Sault Ste. Marie, ON<br>
 						January 2019 - April 2019<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Courses: Java 2 and Data Structures 2</li>
 							<li>Fostered student growth, inspiration & leadership</li>
 							<li>Applied responsible time management in a lenient work environment</li>
@@ -95,30 +106,30 @@
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 							PHP/Firebase Consultant & Developer
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Soo Food Finder<br>
 						Sault Ste. Marie, ON<br>
 						September 2018 - November 2018<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Implemented a dynamic content management interface for a restructured key-value Firebase database</li>
 							<li>Significantly improved administrators' ability to address food justice and food access in Sault Ste. Marie</li>
 						</ul>
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						SharePoint Consultant & Developer
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Meridian Credit Union<br>
 						Toronto, ON<br>
 						September 2, 2017 - December 2017<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Designed and implemented a Learning Management System within Meridian's intranet</li>
 							<li>Enabled every employee to pursue self learning</li>
 							<li>Implemented with 2 sites, few lists/libraries, CSS, JavaScript and SharePoint's Client-Side Object Model</li>
@@ -127,17 +138,17 @@
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Junior Programmer Analyst Co-op
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Meridian Credit Union<br>
 						Toronto, ON<br>
 						May 8, 2017 - September 1, 2017<br>
 						August 29, 2016 - January 6, 2017<br>
 						January 4, 2016 - May 9, 2016<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>SharePoint administration and development</li>
 							<li>Set up SharePoint Team Sites and assisted in training for 30+ site owners from a variety of departments</li>
 							<li>Created custom site collection branding, timer jobs, event receivers, workflows and InfoPath forms</li>
@@ -145,147 +156,91 @@
 						</ul>
 					</div>
 				</div>
-				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
-						Summer Student
-					</div>
-					<div class="infoItemDetails">
-						Fiat Chrysler Automobiles Canada<br>
-						Brampton, ON<br>
-						May 2015 - August 2015<br>
-						May 2014 - August 2014<br>
-						<ul>
-							<li>Exceptional work ethics, acute time management and teamwork</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
-						Landscaper
-					</div>
-					<div class="infoItemDetails">
-						Landscaping Services<br>
-						Halton Hills, ON<br>
-						May 2015 - June 2015<br>
-						<ul>
-							<li>Effective communication skills, constant customer relations, efficiency</li>
-						</ul>
-					</div>
-				</div>
 			</div>
 			<br class="hidden">
 		</section>
 	
-		<section id="involvement" class="infoSection hidden">
-			<h2 class="infoSectionTitle">Involvement</h2>
-			<div class="infoFlexContainer">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+		<section id="involvement" class="info-section hidden">
+			<h2 class="info-section-title">Involvement</h2>
+			<div class="flex-container">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Acton Citizens' Band
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Webmaster & Percussionist<br>
 						September 2005 - Present<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Webmaster, committee member, percussion, trumpet, clarinet</li>
 							<li>Performing in concerts and parades for charities and community benefits</li>
 						</ul>
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Algoma University Computer Science Club
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Vice President<br>
 						September 2018 - April 2019<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Encouraged interest, growth and enthusiasm in computer science and related fields</li>
 							<li>Planning, fundraising, organizing and hosting events</li>
 						</ul>
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Acton Junior Band
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Mentor<br>
 						September 2014 - May 2016<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Developed leadership and skills in music</li>
 						</ul>
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						DementiaHack Toronto
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Participant<br>
 						November 7, 2015 - November 9, 2015<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Assisted Dementia research through prototyping competition</li>
 							<li>Fast-paced teamwork and software/hardware experience</li>
 						</ul>
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Community Clean Up: Prospect Park
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Assistant Organizer<br>
 						October 3, 2015<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Event coordination, project management</li>
 							<li>Dedicated environmental awareness</li>
 						</ul>
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Acton Houseleague Hockey
 					</div>
-					<div class="infoItemDetails">
+					<div class="info-item-details">
 						Assistant Coach<br>
 						September 2013 - March 2014<br>
-						<ul>
+						<ul class="info-item-highlights">
 							<li>Developed leadership and hockey skills in mature players</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
-						Big Brothers Big Sisters of Halton Hills
-					</div>
-					<div class="infoItemDetails">
-						Mentor<br>
-						October 2010 - May 2012<br>
-						<ul>
-							<li>Tutored and taught basic STEM and study skills</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
-						Cancer Assistance Services of Halton Hills
-					</div>
-					<div class="infoItemDetails">
-						Participant<br>
-						April 2007<br>
-						April 2008<br>
-						<ul>
-							<li>Raised awareness, marketing distribution, promotion</li>
 						</ul>
 					</div>
 				</div>
@@ -293,20 +248,20 @@
 			<br class="hidden">
 		</section>
 	
-		<section id="skills" class="infoSection hidden">
-			<h2 class="infoSectionTitle">Skills</h2>
-			<div class="infoFlexContainer">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+		<section id="skills" class="info-section hidden">
+			<h2 class="info-section-title">Skills</h2>
+			<div class="flex-container">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Experienced
 					</div>
-					<div class="infoItemDetails">
-						<ul>
+					<div class="info-item-details">
+						<ul class="info-item-highlights">
 							<li>C#, ASP.NET</li>
 							<li>Java</li>
 							<li>JavaScript, HTML, CSS, SCSS</li>
 							<li>Leadership, Teamwork, Communication</li>
-							<li>Object Oriented Programming and Design with UML</li>
+							<li>Object Oriented Programming and Design with UML, OOP</li>
 							<li>PHP</li>
 							<li>RESTful Web Services and APIs</li>
 							<li>SharePoint, InfoPath</li>
@@ -315,14 +270,12 @@
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Intermediate
 					</div>
-					<div class="infoItemDetails">
-						<ul>
-							<li>Assembly Language</li>
-							<li>C++</li>
+					<div class="info-item-details">
+						<ul class="info-item-highlights">
 							<li>Cloud Web Hosting, Serverless Hosting, Firebase</li>
 							<li>Git, TFS, SVN</li>
 							<li>Hybrid Mobile Appications, Cordova</li>
@@ -334,21 +287,22 @@
 					</div>
 				</div>
 				<br class="hidden">
-				<div class="infoFlexItem">
-					<div class="infoItemTitle">
+				<div class="flex-item">
+					<div class="info-item-title">
 						Fundamentals
 					</div>
-					<div class="infoItemDetails">
-						<ul>
+					<div class="info-item-details">
+						<ul class="info-item-highlights">
 							<li>Access</li>
 							<li>Android</li>
 							<li>Artificial Intelligence, AI</li>
 							<li>AWS, Azure, Cloud Computing</li>
 							<li>Azure</li>
 							<li>C</li>
-							<li>Microsoft Report Builder, Microsoft SQL Report Builder</li>
-							<li>Multithreading, Threading</li>
-							<li>Swift, Objective-C, Objective C, iOS</li>
+							<li>C++</li>
+							<li>Microsoft SQL Report Builder</li>
+							<li>Multithreading</li>
+							<li>Swift, Objective-C, iOS</li>
 						</ul>
 					</div>
 				</div>
