@@ -16,7 +16,6 @@ html {
   margin: 0;
   width: 100%;
   max-width: 100%;
-  color: #ECECEC;
 }
 
 #shadow {
@@ -24,7 +23,7 @@ html {
   box-shadow: inset #000000 0px 0px 65px 0px;
 }
 
-.fullScreen {
+.full-screen {
   position: fixed;
   top: 0;
   bottom: 0;
