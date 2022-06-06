@@ -1,0 +1,111 @@
+/* © Brian Morris 2022 | http://brianmorris.info */
+
+$font-stack: 'Montserrat', Arial, Helvetica, sans-serif;
+$primary-hex: #ECECEC;
+$primary-rgb-values: 236, 236, 236;
+$secondary-hex: #AAAAAA;
+$background-color: #191919;
+
+@font-face {
+  font-family: 'Montserrat';
+  font-display: fallback;
+  unicode-range: U+0-5A, U+61-7A;
+  src: url("/style/Montserrat/static/Montserrat-Regular.ttf") 
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-display: fallback;
+  unicode-range: U+0-5A, U+61-7A;
+  src: url("/style/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+  font-weight: 100;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body {
+  margin: 8px;
+  font-size: 20px;
+  line-height: 1.5;
+  background-color: $background-color;
+  font-family: $font-stack;
+  font-weight: normal;
+  font-style: normal;
+  color: $primary-hex;
+}
+
+a {
+  color: #ececec;
+  text-decoration: none;
+  font-style: normal;
+}
+
+a.header-nav-item,
+a.flex-item {
+  display: inline-block;
+  padding: 8px;
+  margin: 8px;
+  background-color: #000000;
+  border: 1px solid #ececec;
+}
+
+.profile,
+#header-nav,
+.headerNavItem,
+#mobile-menu-button,
+#menu,
+#overlay,
+#lines,
+#stars,
+#trees,
+#shadow {
+  display: none;
+}
+
+#header {
+  #header-title {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+#content {
+  .info-section {
+
+    .flex-container {
+      padding-top: 8px;
+
+      .flex-item {
+        margin: 0 20px;
+
+        .info-item-title {
+          font-weight: bold;
+        }
+
+        .info-item-details {
+          margin: 0 20px;
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+
+  .social-link {
+    display: inline-block;
+    height: 100px;
+    padding: 30px;
+
+    .social-link-logo {
+      border: none;
+    }
+  }
+}
