@@ -1,0 +1,77 @@
+@media only screen and (max-height: 500px) {
+  body, html {
+    font-size: 14px;
+  }
+  #header {
+    font-size: 2vw;
+  }
+  #header #mobile-menu-button {
+    height: 4vw;
+    margin: 0.7vw 2vw;
+  }
+  #content {
+    top: 7.5vw;
+  }
+  #content #menu .flex-item,
+  #content #contact .flex-item,
+  #content #resume .flex-item {
+    font-size: 3vw;
+    margin: 1vw;
+  }
+  #content .flex-container .flex-item {
+    margin: 1vw;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  body, html {
+    font-size: 20px;
+  }
+  #mobile-menu-button {
+    display: none;
+  }
+  #header {
+    font-size: 2vw;
+  }
+  #header #header-nav {
+    display: block;
+  }
+  #menu {
+    display: none !important;
+  }
+  #content {
+    top: 7.5vw;
+  }
+  #content .flex-container .flex-item {
+    margin: 2vw;
+    padding: 1.5vw;
+  }
+  #content #contact .flex-container,
+  #content #resume .flex-container,
+  #content #skills .flex-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #content #contact .flex-item,
+  #content #resume .flex-item,
+  #content #skills .flex-item {
+    flex: 1;
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+  @supports not ((flex-direction: column) or (justify-content: space-around)) {
+    #content .flex-container {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    #content .flex-item {
+      flex: 1;
+      flex-shrink: 1;
+      flex-grow: 1;
+    }
+  }
+  #content #contact .flex-container .flex-item,
+  #content #resume .flex-container .flex-item {
+    font-size: 1.5vw;
+  }
+}
