@@ -1,32 +1,41 @@
-let headerTitleLink;
-let headerTitle;
-let headerLocationInfo;
-let mainMenu;
-let footer;
-let mainContent;
-let defaultHashValue = "contact";
+var headerTitleLink;
+var headerTitle;
+var headerLocationInfo;
+var headerLocationInfoLink;
+var headerNav;
+var headerNavLinks;
+var mobileMenuButton;
+var mainContent;
+var footer;
+var overlay;
+var defaultSectionId = "contact";
+var fadeLength = 3000;
 
-var hashChanged = false;
 var foregroundHidden = true;
 var currentSection;
 
 var hashEnum = {
-    contact: 0,
-    resume: 1,
-    education: 2,
-    experience: 3,
-    involvement: 4,
-    skills: 5,
-    stars: 6
+    menu: 0,
+    contact: 1,
+    resume: 2,
+    education: 3,
+    experience: 4,
+    involvement: 5,
+    skills: 6,
+    stars: 7
   };
 
 window.onload = function () {
-    headerTitle = document.getElementById("headerTitle");
-    headerTitleLink = document.getElementById("headerTitleLink");
-    headerLocationInfo = document.getElementById("headerLocationInfo");
-    mainMenu = document.getElementById("mainMenu");
+    headerTitle = document.getElementById("header-title");
+    headerTitleLink = document.getElementById("header-title-link");
+    headerLocationInfo = document.getElementById("header-location-info");
+    headerLocationInfoLink = document.getElementById("header-location-info-link");
+    headerNav = document.getElementById("header-nav");
+    headerNavLinks = document.getElementsByClassName("header-nav-item");
+    mobileMenuButton = document.getElementById("mobile-menu-button");
     mainContent = document.getElementById("content");
     footer = document.getElementById("footer");
+    overlay = document.getElementById("overlay");
 
     initStars();
 
@@ -37,17 +46,18 @@ window.onload = function () {
 
 function hashChange() {
     if(location.hash == "") {
-        displaySection(defaultHashValue);
+        displaySection(defaultSectionId);
     } else {
         var hashValue = location.hash.toLowerCase().substring(1);
+
         var hashNum = hashEnum[hashValue];
         var invalidHash = false;
     
         if(!isNaN(hashNum)){
-            if(hashNum == 6) {
+            if(hashNum == 7) {
                 foregroundHidden = false;
                 toggleForeground();
-            } else if(0 <= hashNum && hashNum <= 6) {
+            } else if(0 <= hashNum && hashNum <= 7) {
                 foregroundHidden = true;
                 toggleForeground();
                 displaySection(hashValue);
@@ -62,21 +72,33 @@ function hashChange() {
             console.log("Invalid hash value: " + hashValue);
             console.log("Hash options:", Object.keys(hashEnum));
             location.hash = "";
-            displaySection(defaultHashValue);
+            displaySection(defaultSectionId);
         }
     }
 }
 
 function displaySection(sectionId) {
     if(!sectionId) {
-        sectionId = defaultHashValue;
+        sectionId = defaultSectionId;
     }
-
-    location.hash = sectionId;
 
     if(currentSection) {
         currentSection.classList.add("hidden");
-        document.getElementById(currentSection.id + "NavItem").classList.remove("active");
+        currentSectionHeaderNavItem = document.getElementById(currentSection.id + "-header-nav-item");
+
+        if(currentSectionHeaderNavItem) {
+            currentSectionHeaderNavItem.classList.remove("active");
+        }
+    }
+
+    if(sectionId == "menu") {
+        if(currentSection) {
+            mobileMenuButton.href = "#" + currentSection.id;
+        } else {
+            mobileMenuButton.href = "#" + defaultSectionId;
+        }
+    } else {
+        mobileMenuButton.href = "#menu";
     }
 
     mainContent.scrollLeft = 0;
@@ -84,32 +106,55 @@ function displaySection(sectionId) {
 
     currentSection = document.getElementById(sectionId);
     currentSection.classList.remove("hidden");
+    currentSectionHeaderNavItem = document.getElementById(currentSection.id + "-header-nav-item");
 
-    document.getElementById(sectionId + "NavItem").classList.add("active");
+    if(currentSectionHeaderNavItem) {
+        currentSectionHeaderNavItem.classList.add("active");
+    }
+
+    location.hash = sectionId;
 }
 
 function toggleForeground() {
     if(foregroundHidden) {
         headerTitleLink.href = "#stars";
-        headerTitleLink.title = "Just The Stars";
+        headerTitleLink.title = "Watch the stars";
+
+        overlay.style.display = "none";
+        mobileMenuButton.classList.remove("deactivated-link");
+        headerLocationInfoLink.classList.remove("deactivated-link");
+
+        for(var i = 0; i < headerNavLinks.length; i++) {
+            headerNavLinks[i].classList.remove("deactivated-link");
+        }
 
         headerTitle.style.opacity = "1";
-        headerLocationInfo.style.opacity = "1";
-        mainMenu.style.opacity = "1";
-        footer.style.opacity = "1";
         mainContent.style.opacity = "1";
+        mobileMenuButton.style.opacity = "1";
+        headerNav.style.opacity = "1";
+        headerLocationInfo.style.opacity = "1";
+        footer.style.opacity = "1";
 
         foregroundHidden = false;
     } else {
-        let newHash = currentSection ? currentSection.id : "";
+        var newHash = currentSection ? currentSection.id : "";
         headerTitleLink.href = "#" + newHash;
         headerTitleLink.title = "Show Content";
 
+        overlay.style.display = "block";
+        mobileMenuButton.classList.add("deactivated-link");
+        headerLocationInfoLink.classList.add("deactivated-link");
+
+        for(var j = 0; j < headerNavLinks.length; j++) {
+            headerNavLinks[j].classList.add("deactivated-link");
+        }
+
         headerTitle.style.opacity = "0.1";
-        headerLocationInfo.style.opacity = "0";
-        mainMenu.style.opacity = "0";
-        footer.style.opacity = "0";
         mainContent.style.opacity = "0";
+        mobileMenuButton.style.opacity = "0";
+        headerNav.style.opacity = "0";
+        headerLocationInfo.style.opacity = "0";
+        footer.style.opacity = "0";
 
         foregroundHidden = true;
     }
