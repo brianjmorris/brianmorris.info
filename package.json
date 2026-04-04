@@ -4,15 +4,15 @@
   "description": "Personal website hosted with Firebase and NodeJS",
   "main": "index.js",
   "scripts": {
-    "transpileMainSass": "node-sass --output-style=expanded ./src/scss/main.scss ./src/css/main.css",
-    "transpileMediaQueriesSass": "node-sass --output-style=expanded ./src/scss/media-queries.scss ./src/css/media-queries.css",
-    "transpilePlainSass": "node-sass --output-style=expanded ./src/scss/plain.scss ./src/css/plain.css",
+    "transpileMainSass": "sass --style=expanded ./src/scss/main.scss ./src/css/main.css",
+    "transpileMediaQueriesSass": "sass --style=expanded ./src/scss/media-queries.scss ./src/css/media-queries.css",
+    "transpilePlainSass": "sass --style=expanded ./src/scss/plain.scss ./src/css/plain.css",
     "transpileSass": "npm run transpileMainSass && npm run transpileMediaQueriesSass && npm run transpilePlainSass",
     "cleanMainCss": "cleancss -o ./public/style/merged.min.css ./src/css/stars.css ./src/css/main.css ./src/css/media-queries.css",
     "cleanPlainCss": "cleancss -o ./public/style/plain.min.css ./src/css/plain.css",
     "cleanCss": "npm run cleanMainCss && npm run cleanPlainCss",
     "buildCss": "npm run transpileSass && npm run cleanCss",
-    "buildJs": "uglifyjs -o ./public/js/merged.min.js ./src/js/polyfills.js ./src/js/main.js ./src/js/stars.js ./src/js/modernizr-custom.js",
+    "buildJs": "terser -o ./public/js/merged.min.js ./src/js/polyfills.js ./src/js/main.js ./src/js/stars.js ./src/js/modernizr-custom.js",
     "build": "npm run buildCss && npm run buildJs",
     "serve": "firebase serve -o 0.0.0.0",
     "buildAndServe": "npm run build && npm run serve",
@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.0",
-    "node-sass": "^7.0.1",
-    "uglify-es": "^3.3.9"
+    "sass": "^1.77.8",
+    "terser": "^5.31.3"
   },
   "repository": {
     "type": "git",
@@ -43,8 +43,5 @@
   "bugs": {
     "url": "https://github.com/brianjmorris/brianmorris.info/issues"
   },
-  "homepage": "https://github.com/brianjmorris/brianmorris.info#readme",
-  "dependencies": {
-    "node-sass": "^7.0.1"
-  }
+  "homepage": "https://brianmorris.info"
 }
