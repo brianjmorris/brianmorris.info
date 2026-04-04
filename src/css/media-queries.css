@@ -22,7 +22,6 @@
     margin: 1vw;
   }
 }
-
 @media only screen and (min-width: 800px) {
   body, html {
     font-size: 20px;
@@ -75,3 +74,5 @@
     font-size: 1.5vw;
   }
 }
+
+/*# sourceMappingURL=media-queries.css.map */

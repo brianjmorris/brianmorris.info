@@ -1,16 +1,15 @@
 @charset "UTF-8";
 /* © Brian Morris 2022 | http://brianmorris.info */
 @font-face {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-display: fallback;
   unicode-range: U+0-5A, U+61-7A;
   src: url("/style/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-display: fallback;
   unicode-range: U+0-5A, U+61-7A;
   src: url("/style/Montserrat/static/Montserrat-Light.ttf") format("truetype");
@@ -18,7 +17,6 @@
   font-weight: 400;
   font-style: normal;
 }
-
 html,
 body {
   margin: 8px;
@@ -67,15 +65,12 @@ a.flex-item {
 #content .info-section .flex-container {
   padding-top: 8px;
 }
-
 #content .info-section .flex-container .flex-item {
   margin: 0 20px;
 }
-
 #content .info-section .flex-container .flex-item .info-item-title {
   font-weight: bold;
 }
-
 #content .info-section .flex-container .flex-item .info-item-details {
   margin: 0 20px;
 }
@@ -85,13 +80,13 @@ a.flex-item {
   padding: 8px;
   text-align: center;
 }
-
 #footer .social-link {
   display: inline-block;
   height: 100px;
   padding: 30px;
 }
-
 #footer .social-link .social-link-logo {
   border: none;
 }
+
+/*# sourceMappingURL=plain.css.map */

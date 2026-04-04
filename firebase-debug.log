@@ -1,0 +1,120 @@
+[debug] [2026-04-04T02:04:17.386Z] ----------------------------------------------------------------------
+[debug] [2026-04-04T02:04:17.390Z] Command:       C:\nvm4w\nodejs\node.exe C:\nvm4w\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve -o 0.0.0.0
+[debug] [2026-04-04T02:04:17.391Z] CLI Version:   13.34.0
+[debug] [2026-04-04T02:04:17.391Z] Platform:      win32
+[debug] [2026-04-04T02:04:17.391Z] Node Version:  v22.14.0
+[debug] [2026-04-04T02:04:17.391Z] Time:          Fri Apr 03 2026 22:04:17 GMT-0400 (Eastern Daylight Time)
+[debug] [2026-04-04T02:04:17.391Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-04-04T02:04:17.602Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-04T02:04:17.602Z] > authorizing via signed-in user (contact.brianmorris.info@gmail.com)
+[debug] [2026-04-04T02:04:17.603Z] [iam] checking project brian-morris for permissions ["firebase.projects.get"]
+[debug] [2026-04-04T02:04:17.604Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:17.604Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:17.605Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/brian-morris:testIamPermissions [none]
+[debug] [2026-04-04T02:04:17.605Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/brian-morris:testIamPermissions x-goog-quota-user=projects/brian-morris
+[debug] [2026-04-04T02:04:17.605Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/brian-morris:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-04-04T02:04:17.902Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/brian-morris:testIamPermissions 200
+[debug] [2026-04-04T02:04:17.902Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/brian-morris:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2026-04-04T02:04:17.903Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:17.903Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:17.903Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/brian-morris [none]
+[debug] [2026-04-04T02:04:17.980Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/brian-morris 200
+[debug] [2026-04-04T02:04:17.980Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/brian-morris {"projectNumber":"747018941137","projectId":"brian-morris","lifecycleState":"ACTIVE","name":"Brian Morris","labels":{"firebase":"enabled"},"createTime":"2018-08-20T13:36:35.888Z"}
+[info] 
+[info] === Serving from 'C:\Users\brian\Documents\Projects-Local\brianmorris.info\LIVE-GITHUB'...
+[info] 
+[debug] [2026-04-04T02:04:17.985Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:17.985Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:17.988Z] defaultcredentials: writing to file C:\Users\brian\AppData\Roaming\firebase\contact_brianmorris.info_gmail.com_application_default_credentials.json
+[debug] [2026-04-04T02:04:17.988Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/brian-morris/sites 
+[debug] [2026-04-04T02:04:17.992Z] Setting GAC to C:\Users\brian\AppData\Roaming\firebase\contact_brianmorris.info_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\brian\\AppData\\Roaming\\firebase\\contact_brianmorris.info_gmail.com_application_default_credentials.json"}}
+[debug] [2026-04-04T02:04:17.994Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:17.994Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:17.994Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris/adminSdkConfig [none]
+[debug] [2026-04-04T02:04:18.233Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris/adminSdkConfig 200
+[debug] [2026-04-04T02:04:18.233Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris/adminSdkConfig {"projectId":"brian-morris","databaseURL":"https://brian-morris.firebaseio.com","storageBucket":"brian-morris.firebasestorage.app","locationId":"us-central"}
+[debug] [2026-04-04T02:04:18.606Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/brian-morris/sites 200
+[debug] [2026-04-04T02:04:18.606Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/brian-morris/sites {"sites":[{"name":"projects/brian-morris/sites/brian-morris","defaultUrl":"https://brian-morris.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2026-04-04T02:04:18.606Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:18.606Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:18.606Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris/webApps/-/config [none]
+[debug] [2026-04-04T02:04:18.982Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris/webApps/-/config 200
+[debug] [2026-04-04T02:04:18.982Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris/webApps/-/config {"projectId":"brian-morris","databaseURL":"https://brian-morris.firebaseio.com","storageBucket":"brian-morris.firebasestorage.app","locationId":"us-central","apiKey":"AIzaSyA7zXmB0hcrl5Wieer3l_-BdcwT_shPy6Y","authDomain":"brian-morris.firebaseapp.com","messagingSenderId":"747018941137","projectNumber":"747018941137","version":"2"}
+[debug] [2026-04-04T02:04:18.990Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:18.990Z] Checked if tokens are valid: true, expires at: 1775269695005
+[debug] [2026-04-04T02:04:18.991Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris [none]
+[debug] [2026-04-04T02:04:19.142Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris 200
+[debug] [2026-04-04T02:04:19.142Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/brian-morris {"projectId":"brian-morris","projectNumber":"747018941137","displayName":"Brian Morris","name":"projects/brian-morris","resources":{"hostingSite":"brian-morris","realtimeDatabaseInstance":"brian-morris","locationId":"us-central"},"state":"ACTIVE","etag":"1_81b8d3de-05f4-4c2a-b07e-8aac0d3d6e32"}
+[info] i  functions: Watching "C:\Users\brian\Documents\Projects-Local\brianmorris.info\LIVE-GITHUB\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\brian\\Documents\\Projects-Local\\brianmorris.info\\LIVE-GITHUB\\functions\" for Cloud Functions..."}}
+[info] i  hosting[brian-morris]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[brian-morris]: Local server: http://0.0.0.0:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://0.0.0.0:5000\u001b[22m\u001b[24m"}}
+[debug] [2026-04-04T02:04:19.181Z] Validating nodejs source
+[debug] [2026-04-04T02:04:20.975Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^4.18.2",
+    "firebase-functions": "^7.2.3",
+    "js-yaml": "^4.1.1",
+    "lodash": "^4.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.4",
+    "eslint-plugin-promise": "^7.2.1"
+  },
+  "private": true,
+  "engines": {
+    "node": "22"
+  }
+}
+[debug] [2026-04-04T02:04:20.975Z] Building nodejs source
+[debug] [2026-04-04T02:04:20.976Z] Failed to find version of module node: reached end of search path C:\Users\brian\Documents\Projects-Local\brianmorris.info\LIVE-GITHUB\functions\node_modules
+[info] +  functions: Using node@22 from host. 
+[debug] [2026-04-04T02:04:20.978Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-04-04T02:04:20.990Z] Found firebase-functions binary at 'C:\Users\brian\Documents\Projects-Local\brianmorris.info\LIVE-GITHUB\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8818
+
+[debug] [2026-04-04T02:04:22.117Z] Got response from /__/functions.yaml {"endpoints":{"app":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
+[info] +  functions[us-central1-app]: http function initialized (http://127.0.0.1:5001/brian-morris/us-central1/app). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/brian-morris/us-central1/app)."}}
+[info] [hosting] Rewriting / to http://127.0.0.1:5001/brian-morris/us-central1/app for local Function us-central1/app
+[debug] [2026-04-04T02:04:29.212Z] >>> [apiv2][query] GET http://127.0.0.1:5001/brian-morris/us-central1/app/ 
+[debug] [2026-04-04T02:04:29.229Z] [work-queue] {"queuedWork":["/brian-morris/us-central1/app/-2026-04-04T02:04:29.228Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2026-04-04T02:04:29.230Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/brian-morris/us-central1/app/-2026-04-04T02:04:29.228Z"],"workRunningCount":1}
+[debug] [2026-04-04T02:04:29.231Z] Accepted request GET /brian-morris/us-central1/app/ --> us-central1-app
+[debug] [2026-04-04T02:04:29.233Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2026-04-04T02:04:29.235Z] [functions] Got req.url=/brian-morris/us-central1/app/, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/brian-morris/us-central1/app/, mapping to path=/"}}
+[debug] [2026-04-04T02:04:29.283Z] [worker-pool] addWorker(us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-app)"}}
+[debug] [2026-04-04T02:04:29.287Z] [worker-pool] Adding worker with key us-central1-app, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-app, total=1"}}
+[info] >  Debugger listening on ws://127.0.0.1:50119/d218d809-793a-4d92-a3ea-150bf6d680a9 {"user":"Debugger listening on ws://127.0.0.1:50119/d218d809-793a-4d92-a3ea-150bf6d680a9\r","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m Debugger listening on ws://127.0.0.1:50119/d218d809-793a-4d92-a3ea-150bf6d680a9\r"}}
+[info] >  For help, see: https://nodejs.org/en/docs/inspector {"user":"For help, see: https://nodejs.org/en/docs/inspector\r","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m For help, see: https://nodejs.org/en/docs/inspector\r"}}
+[info] >  Debugger attached. {"user":"Debugger attached.\r","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"\u001b[90m> \u001b[39m Debugger attached.\r"}}
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed as a dependency. To fix this, run "npm install --save firebase-admin" in your functions directory. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"The Cloud Functions emulator requires the module \"firebase-admin\" to be installed as a dependency. To fix this, run \"npm install --save firebase-admin\" in your functions directory."}}
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above) {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Your functions could not be parsed due to an issue with your node_modules (see above)"}}
+[debug] [2026-04-04T02:04:36.021Z] [runtime-status] [3320] Functions runtime initialized. {"cwd":"C:\\Users\\brian\\Documents\\Projects-Local\\brianmorris.info\\LIVE-GITHUB\\functions","node_version":"22.14.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [3320] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\brian\\\\Documents\\\\Projects-Local\\\\brianmorris.info\\\\LIVE-GITHUB\\\\functions\",\"node_version\":\"22.14.0\"}"}}
+[debug] [2026-04-04T02:04:36.022Z] [runtime-status] [3320] Listening to port: \\?\pipe\fire_emu_c163a1f9d1d6ff96 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [3320] Listening to port: \\\\?\\pipe\\fire_emu_c163a1f9d1d6ff96"}}
+[debug] [2026-04-04T02:04:36.078Z] [worker-us-central1-app-a1b36734-90be-444c-84f6-dcc51bf989a9]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-a1b36734-90be-444c-84f6-dcc51bf989a9]: IDLE"}}
+[debug] [2026-04-04T02:04:36.079Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2026-04-04T02:04:36.081Z] [worker-us-central1-app-a1b36734-90be-444c-84f6-dcc51bf989a9]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-a1b36734-90be-444c-84f6-dcc51bf989a9]: BUSY"}}
+[debug] [2026-04-04T02:04:36.129Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 48.57ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 48.57ms"}}
+[debug] [2026-04-04T02:04:36.130Z] [worker-us-central1-app-a1b36734-90be-444c-84f6-dcc51bf989a9]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-a1b36734-90be-444c-84f6-dcc51bf989a9]: IDLE"}}
+[debug] [2026-04-04T02:04:36.131Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2026-04-04T02:04:36.131Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2026-04-04T02:04:36.131Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2026-04-04T02:04:36.133Z] <<< [apiv2][status] GET http://127.0.0.1:5001/brian-morris/us-central1/app/ 304
+[debug] [2026-04-04T02:04:36.133Z] <<< [apiv2][body] GET http://127.0.0.1:5001/brian-morris/us-central1/app/ [stream]
+[info] i  hosting: 127.0.0.1 - - [04/Apr/2026:02:04:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [04/Apr/2026:02:04:36 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [04/Apr/2026:02:04:36 +0000] "GET /style/merged.min.css HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [04/Apr/2026:02:04:36 +0000] \"GET /style/merged.min.css HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [04/Apr/2026:02:04:36 +0000] "GET /js/merged.min.js HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [04/Apr/2026:02:04:36 +0000] \"GET /js/merged.min.js HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36\""}}

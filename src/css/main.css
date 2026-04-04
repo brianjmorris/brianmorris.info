@@ -1,16 +1,15 @@
 @charset "UTF-8";
 /* © Brian Morris 2022 | http://brianmorris.info */
 @font-face {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-display: fallback;
   unicode-range: U+0-5A, U+61-7A;
   src: url("/style/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-display: fallback;
   unicode-range: U+0-5A, U+61-7A;
   src: url("/style/Montserrat/static/Montserrat-Light.ttf") format("truetype");
@@ -18,7 +17,6 @@
   font-weight: 400;
   font-style: normal;
 }
-
 html,
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
@@ -76,16 +74,13 @@ a.deactivated-link {
   font-size: 3.5vw;
   background-image: linear-gradient(to bottom, #000000 0%, transparent 100%);
 }
-
 #header #header-info {
   z-index: 999;
   display: inline-block;
 }
-
 #header #header-info #header-title, #header #header-info #header-title-link {
   z-index: 999;
 }
-
 #header #header-info #header-title, #header #header-info #header-title h1, #header #header-info #header-location-info {
   margin: 0;
   line-height: 1;
@@ -96,12 +91,10 @@ a.deactivated-link {
   -moz-transition: opacity 2s ease-in-out;
   -webkit-transition: opacity 2s ease-in-out;
 }
-
 #header #header-info #header-location-info {
   z-index: 997;
-  padding-left: .2vw;
+  padding-left: 0.2vw;
 }
-
 #header #header-nav {
   z-index: 997;
   position: absolute;
@@ -109,22 +102,18 @@ a.deactivated-link {
   top: 0;
   display: none;
 }
-
 #header #header-nav .header-nav-item {
   z-index: 997;
   display: inline-block;
   margin: 1vw;
   cursor: pointer;
 }
-
 #header #header-nav .header-nav-item.active {
   border-bottom: 1px solid #ECECEC;
 }
-
 #header #header-nav .header-nav-item:hover {
   border-bottom: 1px solid #AAAAAA;
 }
-
 #header #mobile-menu-button {
   z-index: 997;
   position: fixed;
@@ -135,12 +124,10 @@ a.deactivated-link {
   width: 15vw;
   margin: 1vw 2vw;
 }
-
 #header #mobile-menu-button #mobile-menu-button-svg {
   width: 100%;
   height: 100%;
 }
-
 #header #mobile-menu-button #mobile-menu-button-svg .mobile-menu-button-rect {
   fill: #ececec;
   stroke: #ececec;
@@ -160,7 +147,6 @@ a.deactivated-link {
   border-top: 1px solid #353535;
   border-bottom: 1px solid #353535;
 }
-
 #content #menu {
   display: flex;
   flex-direction: column;
@@ -177,7 +163,6 @@ a.deactivated-link {
   align-content: center;
   min-height: 100%;
 }
-
 #content #menu .flex-item {
   display: inline-block;
   flex-basis: auto;
@@ -190,7 +175,6 @@ a.deactivated-link {
   border: 1px solid #818181;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
 #content #contact .flex-item,
 #content #resume .flex-item {
   display: inline-block;
@@ -199,18 +183,15 @@ a.deactivated-link {
   font-size: 5vw;
   padding: 1.5vw;
 }
-
 #content .info-section {
   opacity: 1;
   vertical-align: top;
   height: 100%;
 }
-
 #content .info-section .info-section-title {
   display: none;
   margin: 10px 0;
 }
-
 #content .info-section .flex-container {
   display: flex;
   flex-direction: column;
@@ -221,7 +202,6 @@ a.deactivated-link {
   align-content: center;
   min-height: 100%;
 }
-
 #content .info-section .flex-item {
   padding: 4vw;
   margin: 4vw;
@@ -229,20 +209,16 @@ a.deactivated-link {
   border: 1px solid #818181;
   background-color: rgba(0, 0, 0, 0.5);
 }
-
 #content .info-section .flex-item .info-item-title {
   font-weight: bolder;
   font-size: 1.2rem;
 }
-
 #content .info-section .flex-item .info-item-details {
   padding: 1vw;
 }
-
 #content .info-section .flex-item .info-item-details .info-item-highlights {
   font-weight: bold;
 }
-
 #content .info-section .flex-item .info-item-details .info-item-highlights li {
   margin-bottom: 0.5rem;
 }
@@ -256,14 +232,12 @@ a.deactivated-link {
   height: 15%;
   text-align: center;
 }
-
 #footer .social-link {
   position: relative;
   display: inline-block;
   height: 100%;
   width: 20%;
 }
-
 #footer .social-link .social-link-logo {
   max-height: 50%;
   max-width: 100%;
@@ -287,3 +261,5 @@ a.deactivated-link {
   height: 100%;
   display: none;
 }
+
+/*# sourceMappingURL=main.css.map */
