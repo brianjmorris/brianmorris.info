@@ -1,4 +1,4 @@
-/* © Brian Morris 2022 | http://brianmorris.info */
+/* © Brian Morris 2026 | http://brianmorris.info */
 
 const jsonResumePath = '/brianmorris.json';
 const docxResumePath = '/brianmorris.docx';
@@ -6,7 +6,7 @@ const pdfResumePath = '/brianmorris.pdf';
 const vCardPath = '/brianmorris.vcf';
 const profilePath = '/img/Brian-Morris.jpg';
 
-const { onRequest } = require('firebase-functions/v2/https');
+const { onRequest } = require("firebase-functions/v2/https");
 const express = require('express');
 const path = require('path');
 
@@ -19,160 +19,163 @@ app.get('/', (request, response) => {
   response.render('home');
 });
 
-app.get("/*contact*", (request, response) => {
-  response.redirect("/#contact");
+app.get(/^\/.*contact.*\/?$/i, (request, response) => {
+  // response.redirect("/#contact");
+  response.redirect("/");
 });
 
-app.get("/*phone*", (request, response) => {
-  response.redirect("/#contact");
+app.get(/^\/.*phone.*\/?$/i, (request, response) => {
+  // response.redirect("/#contact");
+  response.redirect("/");
 });
 
-app.get("/*email*", (request, response) => {
-  response.redirect("/#contact");
+app.get(/^\/.*email.*\/?$/i, (request, response) => {
+  // response.redirect("/#contact");
+  response.redirect("/");
 });
 
-app.get("/*education*", (request, response) => {
-  response.redirect("/#education");
-});
+// app.get("/*education*", (request, response) => {
+//   response.redirect("/#education");
+// });
 
-app.get("/*school*", (request, response) => {
-  response.redirect("/#education");
-});
+// app.get("/*school*", (request, response) => {
+//   response.redirect("/#education");
+// });
 
-app.get("/*academic*", (request, response) => {
-  response.redirect("/#education");
-});
+// app.get("/*academic*", (request, response) => {
+//   response.redirect("/#education");
+// });
 
-app.get("/*experience*", (request, response) => {
-  response.redirect("/#experience");
-});
+// app.get("/*experience*", (request, response) => {
+//   response.redirect("/#experience");
+// });
 
-app.get("/*work*", (request, response) => {
-  response.redirect("/#experience");
-});
+// app.get("/*work*", (request, response) => {
+//   response.redirect("/#experience");
+// });
 
-app.get("/*involvement*", (request, response) => {
-  response.redirect("/#involvement");
-});
+// app.get("/*involvement*", (request, response) => {
+//   response.redirect("/#involvement");
+// });
 
-app.get("/*community*", (request, response) => {
-  response.redirect("/#involvement");
-});
+// app.get("/*community*", (request, response) => {
+//   response.redirect("/#involvement");
+// });
 
-app.get("/*volunteer*", (request, response) => {
-  response.redirect("/#involvement");
-});
+// app.get("/*volunteer*", (request, response) => {
+//   response.redirect("/#involvement");
+// });
 
-app.get("/*skill*", (request, response) => {
-  response.redirect("/#skills");
-});
+// app.get("/*skill*", (request, response) => {
+//   response.redirect("/#skills");
+// });
 
-app.get("/*talent*", (request, response) => {
-  response.redirect("/#skills");
-});
+// app.get("/*talent*", (request, response) => {
+//   response.redirect("/#skills");
+// });
 
-app.get("/*knowledge*", (request, response) => {
-  response.redirect("/#skills");
-});
+// app.get("/*knowledge*", (request, response) => {
+//   response.redirect("/#skills");
+// });
 
-app.get("/*json", (request, response) => {
+app.get(/^\/.*json\/?$/i, (request, response) => {
   response.redirect(jsonResumePath);
 });
 
-app.get("/*doc*", (request, response) => {
+app.get(/^\/.*doc.*\/?$/i, (request, response) => {
   response.redirect(docxResumePath);
 });
 
-app.get("/*office*", (request, response) => {
+app.get(/^\/.*office.*\/?$/i, (request, response) => {
   response.redirect(docxResumePath);
 });
 
-app.get("/*word*", (request, response) => {
+app.get(/^\/.*word.*\/?$/i, (request, response) => {
   response.redirect(docxResumePath);
 });
 
-app.get("/*ms*", (request, response) => {
+app.get(/^\/.*ms.*\/?$/i, (request, response) => {
   response.redirect(docxResumePath);
 });
 
-app.get("/*microsoft*", (request, response) => {
+app.get(/^\/.*microsoft.*\/?$/i, (request, response) => {
   response.redirect(docxResumePath);
 });
 
-app.get("/*pdf*", (request, response) => {
+app.get(/^\/.*pdf.*\/?$/i, (request, response) => {
   response.redirect(pdfResumePath);
 });
 
-app.get("/*resume*", (request, response) => {
+app.get(/^\/.*resume.*\/?$/i, (request, response) => {
   response.redirect(pdfResumePath);
 });
 
-app.get("/*résumé*", (request, response) => {
+app.get(/^\/.*résumé.*\/?$/i, (request, response) => {
   response.redirect(pdfResumePath);
 });
 
-app.get("/*r%C3%A9sum%C3%A9*", (request, response) => {
+app.get(/^\/.*r%C3%A9sum%C3%A9.*\/?$/i, (request, response) => {
   response.redirect(pdfResumePath);
 });
 
-app.get("/*résume*", (request, response) => {
+app.get(/^\/.*résume.*\/?$/i, (request, response) => {
   response.redirect(pdfResumePath);
 });
 
-app.get("/*r%C3%A9sume*", (request, response) => {
+app.get(/^\/.*r%C3%A9sume.*\/?$/i, (request, response) => {
   response.redirect(pdfResumePath);
 });
 
-app.get("/*resumé*", (request, response) => {
+app.get(/^\/.*resumé.*\/?$/i, (request, response) => {
   response.redirect(pdfResumePath);
 });
 
-app.get("/*resum%C3%A9*", (request, response) => {
+app.get(/^\/.*resum%C3%A9.*\/?$/i, (request, response) => {
   response.redirect(pdfResumePath);
 });
 
-app.get("/*star*", (request, response) => {
+app.get(/^\/.*star.*\/?$/i, (request, response) => {
   response.redirect("/#stars");
 });
 
-app.get("/*tree*", (request, response) => {
+app.get(/^\/.*tree.*\/?$/i, (request, response) => {
   response.redirect("/#stars");
 });
 
-app.get("/*sky*", (request, response) => {
+app.get(/^\/.*sky.*\/?$/i, (request, response) => {
   response.redirect("/#stars");
 });
 
-app.get("/*vcf*", (request, response) => {
+app.get(/^\/.*vcf.*\/?$/i, (request, response) => {
   response.redirect(vCardPath);
 });
 
-app.get("/*vcard*", (request, response) => {
+app.get(/^\/.*vcard.*\/?$/i, (request, response) => {
   response.redirect(vCardPath);
 });
 
-app.get("/*profile*", (request, response) => {
+app.get(/^\/.*profile.*\/?$/i, (request, response) => {
   response.redirect(profilePath);
 });
 
-app.get("/*pic*", (request, response) => {
+app.get(/^\/.*pic.*\/?$/i, (request, response) => {
   response.redirect(profilePath);
 });
 
-app.get("/*photo*", (request, response) => {
+app.get(/^\/.*photo.*\/?$/i, (request, response) => {
   response.redirect(profilePath);
 });
 
-app.get("/*image*", (request, response) => {
+app.get(/^\/.*image.*\/?$/i, (request, response) => {
   response.redirect(profilePath);
 });
 
-app.get("/*face*", (request, response) => {
+app.get(/^\/.*face.*\/?$/i, (request, response) => {
   response.redirect(profilePath);
 });
 
-app.get("/*", (request, response) => {
-  response.redirect("/#contact");
+app.get(/^\/.*\/?$/i, (request, response) => {
+  response.redirect("/");
 });
 
-exports.app = onRequest(app);
+exports.app = onRequest({ region: "northamerica-northeast2", concurrency: 10 }, app);

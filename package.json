@@ -4,9 +4,9 @@
   "description": "Personal website hosted with Firebase and NodeJS",
   "main": "index.js",
   "scripts": {
-    "transpileMainSass": "sass --style=expanded ./src/scss/main.scss ./src/css/main.css",
-    "transpileMediaQueriesSass": "sass --style=expanded ./src/scss/media-queries.scss ./src/css/media-queries.css",
-    "transpilePlainSass": "sass --style=expanded ./src/scss/plain.scss ./src/css/plain.css",
+    "transpileMainSass": "sass ./src/scss/main.scss ./src/css/main.css",
+    "transpileMediaQueriesSass": "sass ./src/scss/media-queries.scss ./src/css/media-queries.css",
+    "transpilePlainSass": "sass ./src/scss/plain.scss ./src/css/plain.css",
     "transpileSass": "npm run transpileMainSass && npm run transpileMediaQueriesSass && npm run transpilePlainSass",
     "cleanMainCss": "cleancss -o ./public/style/merged.min.css ./src/css/stars.css ./src/css/main.css ./src/css/media-queries.css",
     "cleanPlainCss": "cleancss -o ./public/style/plain.min.css ./src/css/plain.css",
@@ -14,14 +14,9 @@
     "buildCss": "npm run transpileSass && npm run cleanCss",
     "buildJs": "terser -o ./public/js/merged.min.js ./src/js/polyfills.js ./src/js/main.js ./src/js/stars.js ./src/js/modernizr-custom.js",
     "build": "npm run buildCss && npm run buildJs",
-    "serve": "firebase serve -o 0.0.0.0",
+    "serve": "firebase emulators:start",
     "buildAndServe": "npm run build && npm run serve",
     "test": "npm run buildAndServe"
-  },
-  "devDependencies": {
-    "clean-css-cli": "^5.6.0",
-    "sass": "^1.77.8",
-    "terser": "^5.31.3"
   },
   "repository": {
     "type": "git",
@@ -43,5 +38,10 @@
   "bugs": {
     "url": "https://github.com/brianjmorris/brianmorris.info/issues"
   },
-  "homepage": "https://brianmorris.info"
+  "homepage": "https://brianmorris.info",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "sass": "^1.107.0",
+    "terser": "^5.51.2"
+  }
 }
