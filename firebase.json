@@ -1,12 +1,49 @@
 {
   "functions": {
-    "source": "functions"
+    "source": "functions",
+    "ignore": [
+      ".git",
+      ".runtimeconfig.json",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "node_modules",
+      "**/*.bak",
+      "**/*-debug.log*",
+      "**/*.map",
+      "test/**",
+      "coverage/**",
+      "eslint.config.*"
+    ]
   },
   "hosting": {
     "public": "public",
-    "rewrites": [{
-      "source": "**",
-      "function": "app"
-    }]
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.bak",
+      "**/*-debug.log*",
+      "**/*.map"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "app",
+        "region": "northamerica-northeast2"
+      }
+    ]
+  },
+  "emulators": {
+    "hosting": {
+      "port": 5000,
+      "host": "0.0.0.0"
+    },
+    "functions": {
+      "port": 5001
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
   }
 }
