@@ -9,17 +9,14 @@
     height: 4vw;
     margin: 0.7vw 2vw;
   }
-  #content {
-    top: 7.5vw;
-  }
   #content #menu .flex-item,
   #content #contact .flex-item,
   #content #resume .flex-item {
     font-size: 3vw;
-    margin: 1vw;
+    margin: 1vw 0;
   }
   #content .flex-container .flex-item {
-    margin: 1vw;
+    margin: 1vw 0;
   }
 }
 @media only screen and (min-width: 800px) {
@@ -38,11 +35,8 @@
   #menu {
     display: none !important;
   }
-  #content {
-    top: 7.5vw;
-  }
   #content .flex-container .flex-item {
-    margin: 2vw;
+    margin: 2vw 0;
     padding: 1.5vw;
   }
   #content #contact .flex-container,

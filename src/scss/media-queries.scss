@@ -13,17 +13,17 @@
   }
 
   #content {
-    top: 7.5vw;
+    // top: 7.5vw;
 
     #menu .flex-item,
     #contact .flex-item,
     #resume .flex-item {
       font-size: 3vw;
-      margin: 1vw;
+      margin: 1vw 0;
     }
 
     .flex-container .flex-item {
-      margin: 1vw;
+      margin: 1vw 0;
     }
   }
 }
@@ -50,10 +50,10 @@
   }
 
   #content {
-    top: 7.5vw;
+    // top: 7.5vw;
 
     .flex-container .flex-item {
-      margin: 2vw;
+      margin: 2vw 0;
       padding: 1.5vw;
     }
 

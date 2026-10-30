@@ -1,256 +1,294 @@
-/* © Brian Morris 2019 | http://brianmorris.info */
+/* © Brian Morris 2026 | http://brianmorris.info
+ * Interactive canvas starfield with pointer tracking and twinkling animation
+ */
 
-// TODO make lines brighter on click?
-// 	- set to bright white and use opacity & transition in css to change colour
+// Configuration
+const CANVAS_SCALE = 2;
+const LINE_COLOUR = "#555555";
+const NUM_CONNECTED_STARS = 5;
+const STAR_COLOUR = "#FFFFFF";
+const TWINKLE_INTERVAL_TIME = 300;
+const TWINKLE_LENGTH = 200;
+const FOREGROUND_ELEMENT_ID = "trees";
 
-var canvasScale = 2; // update to scale canvas size
-var lineColour = "#555555"; // colour of lines
-var numConnectedStars = 5; // # of stars to draw lines between
-var starColour = "#FFFFFF"; // colour of stars
-var twinkleIntervalTime = 300; // # ms between twinkling stars
-var twinkleLength = 200; // # of ms before stars return to normal size
-var twinkleRatio = 0.10; // ratio to increase star size
-
-var linesLength = { // range of distance from star to mouse to draw lines
+const LINES_LENGTH = {
 	min: 60,
 	max: 200
-}
-var starSize = { // range of star radius
+};
+const STAR_SIZE = {
 	min: 0.3,
 	max: 1
-}
-var starSpacing = { // range of possible space between stars on x axis
+};
+const STAR_SPACING = {
 	min: 50,
 	max: 4000
-}
+};
 
-/* Global Vars */
-var connectedStars = []; // stars to draw lines between
-var currentLine = 0; // index of line moving to a new star
-var fadeLinesTimeout;
-var lineCanvases = [];
-var lineContexts = [];
-var nearbyStars = []; // stars near cursor
-var resizeTimeout;
-var setConnectedStarsInterval;
-var stars = []; 
-var starsCanvas;
-var starsContext;
-var starsInitialized = false; // referenced in initStars() to prevent multiple executions
-var twinkleInterval;
+const RESIZE_DELAY = 1000;
+const FADE_LINES_DELAY = 2000;
+const STARS_INIT_DELAY = 2000;
+const CONNECTED_STARS_UPDATE_INTERVAL = 80;
+const STAR_DRAW_MIN_DELAY = 100;
+const STAR_DRAW_MAX_DELAY = 2000;
+const TWINKLE_RATIO_INCREMENT = 0.1;
+const MAX_CANVAS_WIDTH = 3840;
+const MAX_CANVAS_HEIGHT = 2160;
+const ROW_SPACING = 3;
 
-if(!window.onload) {
-	// if no onload function is defined, initialize the stars
-	window.onload = initStars;
-}
+// State
+let twinkleRatio = 0.10;
 
-function initStars() {
+// Canvas & DOM
+let starsCanvas;
+let starsContext;
+let lineCanvases = [];
+let lineContexts = [];
+
+// Star data
+let stars = [];
+let connectedStars = [];
+let nearbyStars = [];
+let currentLine = 0;
+
+// Timers & timeouts
+let fadeLinesTimeout;
+let resizeTimeout;
+
+// Animation
+let animationFrameId;
+let lastTwinkleTime = 0;
+let lastConnectedStarsTime = 0;
+
+// Flags
+let starsInitialized = false;
+let pointerListenerAttached = false;
+
+const animationLoop = (currentTime) => {
+	if (currentTime - lastTwinkleTime >= TWINKLE_INTERVAL_TIME) {
+		twinkle();
+		lastTwinkleTime = currentTime;
+	}
+
+	if (currentTime - lastConnectedStarsTime >= CONNECTED_STARS_UPDATE_INTERVAL) {
+		setConnectedStars();
+		lastConnectedStarsTime = currentTime;
+	}
+
+	animationFrameId = requestAnimationFrame(animationLoop);
+};
+
+const stopAnimationLoop = () => {
+	if (animationFrameId) {
+		cancelAnimationFrame(animationFrameId);
+		animationFrameId = null;
+	}
+};
+
+const startAnimationLoop = () => {
+	stopAnimationLoop();
+	lastTwinkleTime = performance.now();
+	lastConnectedStarsTime = performance.now();
+	animationFrameId = requestAnimationFrame(animationLoop);
+};
+
+const attachMouseListener = () => {
+	if (!pointerListenerAttached) {
+		window.addEventListener("pointermove", handlePointerMove);
+		pointerListenerAttached = true;
+	}
+};
+
+const detachMouseListener = () => {
+	if (pointerListenerAttached) {
+		window.removeEventListener("pointermove", handlePointerMove);
+		pointerListenerAttached = false;
+	}
+};
+
+const initStars = () => {
 	if(!starsInitialized) {
 		starsInitialized = true;
 
-		// print canvases for each star lines will be drawn to
-		for (var i = 0; i < numConnectedStars; i++) {
-			document.getElementById("lines").innerHTML += "<canvas id='line-" +
-				i + "' class='full-screen line' " + "style='animation: fade " +
-				(4+i) + "s infinite;' width='100%' height='100%' alt=''>" + 
-				"</canvas>";
+		const linesContainer = document.getElementById("lines");
+		for (let i = 0; i < NUM_CONNECTED_STARS; i++) {
+			const canvas = document.createElement("canvas");
+			canvas.id = `line-${i}`;
+			canvas.className = "full-screen line";
+			canvas.style.animation = `fade ${4 + i}s infinite`;
+			canvas.width = "100%";
+			canvas.height = "100%";
+			canvas.alt = "";
+			linesContainer.appendChild(canvas);
 		}
 	
 		setCanvases();
 		drawStars();
 	
 		window.addEventListener("resize", resizeCanvases, false);
-
-		// fade in trees
-		document.getElementById("trees").style.opacity = 1;
+		document.getElementById(FOREGROUND_ELEMENT_ID).style.opacity = 1;
 	}
-}
+};
 
-function setCanvases() {
-	// TODO limit actual canvas resolution
+const setCanvases = () => {
+	let canvasWidth = window.innerWidth * CANVAS_SCALE;
+	let canvasHeight = window.innerHeight * CANVAS_SCALE;
 
-	// set the resolution of the canvases
+	canvasWidth = Math.min(canvasWidth, MAX_CANVAS_WIDTH);
+	canvasHeight = Math.min(canvasHeight, MAX_CANVAS_HEIGHT);
+
 	starsCanvas = document.getElementById("stars");
-	starsCanvas.width = window.innerWidth * canvasScale;
-	starsCanvas.height = window.innerHeight * canvasScale;
+	starsCanvas.width = canvasWidth;
+	starsCanvas.height = canvasHeight;
 	starsContext = starsCanvas.getContext("2d");
 
-	for (var i = 0; i < numConnectedStars; i++) {
+	for (let i = 0; i < NUM_CONNECTED_STARS; i++) {
 		lineCanvases[i] = document.getElementById("line-" + i);
 		lineCanvases[i].width = starsCanvas.width;
 		lineCanvases[i].height = starsCanvas.height;
 		lineContexts[i] = lineCanvases[i].getContext("2d");
 	}
-}
+};
 
-function resizeCanvases() {
-	// wait 1 second after window stops resizing
-	// then reset, adjust canvas resolutions and redraw
+const resizeCanvases = () => {
 	clearTimeout(resizeTimeout);
+	stopAnimationLoop();
 
 	stars = [];
 	connectedStars = [];
 	document.getElementById("lines").style.opacity = 0;
 	document.getElementById("stars").style.opacity = 0;
 
-	resizeTimeout = setTimeout(function () {
+	resizeTimeout = setTimeout(() => {
 		document.getElementById("stars").style.opacity = 1;
 		setCanvases();
 		drawStars();
-	}, 1000);
-}
+	}, RESIZE_DELAY);
+};
 
-function setConnectedStars() {
-	// select a new, nearby star for currentLine to connect to
-	// this function is called in fast intervals (<100ms)
-
+const setConnectedStars = () => {
 	connectedStars[currentLine] = nearbyStars[randomInt(0, nearbyStars.length - 1)];
 	currentLine++;
 
-	if (numConnectedStars <= currentLine) {
+	if (NUM_CONNECTED_STARS <= currentLine) {
 		currentLine = 0;
 	}
-}
+};
 
-function drawLinesToMouse(e) {
-	drawLines((e.clientX * canvasScale), (e.clientY * canvasScale));
-}
+const handlePointerMove = (e) => {
+	drawLines((e.clientX * CANVAS_SCALE), (e.clientY * CANVAS_SCALE));
+};
 
-function drawLinesToFinger(e) {
-	var lastTouch = e.changedTouches[e.changedTouches.length - 1];
-	
-	drawLines((lastTouch.pageX * canvasScale), 
-		(lastTouch.pageY * canvasScale));
-}
-
-function drawLines(posX, posY) {
+const drawLines = (posX, posY) => {
 	clearTimeout(fadeLinesTimeout);
 	document.getElementById("lines").style.opacity = 0.4;
 
-	fadeLinesTimeout = setTimeout(function () {
+	fadeLinesTimeout = setTimeout(() => {
 		document.getElementById("lines").style.opacity = 0;
-	}, 2000);
+	}, FADE_LINES_DELAY);
 
-	nearbyStars = stars.filter(function (star) {
-		xDistance = Math.abs(star.x - posX);
-		yDistance = Math.abs(star.y - posY);
-		distance = Math.sqrt(xDistance * xDistance + yDistance *
+	nearbyStars = stars.filter((star) => {
+		const xDistance = Math.abs(star.x - posX);
+		const yDistance = Math.abs(star.y - posY);
+		const distance = Math.sqrt(xDistance * xDistance + yDistance *
 			yDistance);
-		return linesLength.min <= distance && distance <= linesLength
+		return LINES_LENGTH.min <= distance && distance <= LINES_LENGTH
 			.max;
 	});
 
-	for (var i = 0; i < numConnectedStars; i++) {
+	for (let i = 0; i < NUM_CONNECTED_STARS; i++) {
 		if (connectedStars[i] && connectedStars[i].x && connectedStars[i].y) {
 			lineContexts[i].clearRect(0, 0, lineCanvases[i].width, lineCanvases[
 				i].height);
 			lineContexts[i].beginPath();
 			lineContexts[i].moveTo(connectedStars[i].x, connectedStars[i].y);
 			lineContexts[i].lineTo(posX, posY);
-			lineContexts[i].strokeStyle = lineColour;
+			lineContexts[i].strokeStyle = LINE_COLOUR;
 			lineContexts[i].stroke();
 
-			for (var j = 0; j < numConnectedStars; j++) {
+			for (let j = 0; j < NUM_CONNECTED_STARS; j++) {
 				if (connectedStars[j] && connectedStars[j].x && connectedStars[j].y) {
 					lineContexts[i].beginPath();
 					lineContexts[i].moveTo(connectedStars[i].x, connectedStars[i].y);
 					lineContexts[i].lineTo(connectedStars[j].x, connectedStars[j].y);
-					lineContexts[i].strokeStyle = lineColour;
+					lineContexts[i].strokeStyle = LINE_COLOUR;
 					lineContexts[i].stroke();
 				}
 			}
 		}
 	}
-}
+};
 
-function drawStars() {
-	window.removeEventListener("mousemove", drawLinesToMouse);
-	// window.removeEventListener("touchmove", drawLinesToFinger);
+const drawStars = () => {
+	detachMouseListener();
 
-	for (var i = 0; i < starsCanvas.height; i++) {
+	for (let i = 0; i < starsCanvas.height; i += ROW_SPACING) {
 		drawStarRow(i);
 	}
 
-	setTimeout(function () {
-		window.addEventListener("mousemove", drawLinesToMouse);
-		// window.addEventListener("touchmove", drawLinesToFinger);
+	setTimeout(() => {
+		attachMouseListener();
+		startAnimationLoop();
+	}, STARS_INIT_DELAY);
+};
 
-		clearInterval(twinkleInterval);
-		twinkleInterval = setInterval(function () {
-			twinkle();
-		}, twinkleIntervalTime);
-		clearInterval(setConnectedStarsInterval);
-		setConnectedStarsInterval = setInterval(function () {
-			setConnectedStars();
-		}, 80);
-	}, 2000);
-}
-
-function drawStarRow(y) {
-	var x = 0;
+const drawStarRow = (y) => {
+	let x = 0;
 
 	while (x < starsCanvas.width) {
-		x = randomInt(x + starSpacing.min, x + starSpacing.max);
-		var radius = randomInt(starSize.min * 10, starSize.max * 10) / 10;
+		x = randomInt(x + STAR_SPACING.min, x + STAR_SPACING.max);
+		const radius = randomInt(STAR_SIZE.min * 10, STAR_SIZE.max * 10) / 10;
 		drawStar(x, y, radius);
 	}
-}
+};
 
-function drawStar(x, y, r) {
-	// TODO: add fading stars?
-	setTimeout(function () {
-		var newStar = {
-			x: x,
-			y: y,
-			r: r
-		}
+const drawStar = (x, y, r) => {
+	setTimeout(() => {
+		const newStar = { x, y, r };
 		starsContext.beginPath();
 		starsContext.arc(newStar.x, newStar.y, newStar.r, 0, 2 * Math
 			.PI);
-		starsContext.fillStyle = starColour;
+		starsContext.fillStyle = STAR_COLOUR;
 		starsContext.fill();
 		stars.push(newStar);
-	}, randomInt(100, 2000));
-}
+	}, randomInt(STAR_DRAW_MIN_DELAY, STAR_DRAW_MAX_DELAY));
+};
 
-function twinkle() {
-	var twinkleStar = stars[randomInt(0, stars.length - 1)];
+const twinkle = () => {
+	const twinkleStar = stars[randomInt(0, stars.length - 1)];
 
 	if (twinkleStar && twinkleStar.x && twinkleStar.y && twinkleStar.r) {
-		var newRadius = twinkleStar.r * twinkleRatio;
-
-		if (twinkleRatio < 0) {
-			twinkleRatio *= -1;
-		} else if (1 < twinkleRatio) {
-			twinkleRatio = twinkleRatio - Math.floor(twinkleRatio);
-		}
-
-		twinkleRatio += 1;
-		var newRadius = twinkleStar.r * (1 + twinkleRatio);
+		twinkleRatio = (twinkleRatio + TWINKLE_RATIO_INCREMENT) % 1;
+		const expandedRadius = twinkleStar.r * (1 + twinkleRatio);
+		
 		starsContext.beginPath();
-		starsContext.arc(twinkleStar.x, twinkleStar.y, newRadius, 0, 2 * Math
-			.PI);
-		starsContext.fillStyle = starColour;
+		starsContext.arc(twinkleStar.x, twinkleStar.y, expandedRadius, 0, 2 * Math.PI);
+		starsContext.fillStyle = STAR_COLOUR;
 		starsContext.fill();
 
-		setTimeout(function () {
-			starsContext.save();
+		setTimeout(() => {
 			starsContext.beginPath();
-			starsContext.arc(twinkleStar.x, twinkleStar.y, newRadius +
-				0.5, 0, 2 * Math.PI);
-			starsContext.clip();
-			starsContext.clearRect(0, 0, starsCanvas.width, starsCanvas
-				.height);
-			starsContext.restore();
-			starsContext.beginPath();
-			starsContext.arc(twinkleStar.x, twinkleStar.y, twinkleStar
-				.r, 0, 2 * Math.PI);
-			starsContext.fillStyle = starColour;
+			starsContext.arc(twinkleStar.x, twinkleStar.y, twinkleStar.r, 0, 2 * Math.PI);
+			starsContext.fillStyle = STAR_COLOUR;
 			starsContext.fill();
-		}, twinkleLength);
+		}, TWINKLE_LENGTH);
 	}
-}
+};
 
-function randomInt(min, max) {
+const randomInt = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+};
+
+document.addEventListener("DOMContentLoaded", initStars);
+
+document.addEventListener("visibilitychange", () => {
+	if (document.hidden) {
+		stopAnimationLoop();
+	} else if (starsInitialized) {
+		startAnimationLoop();
+	}
+});
+
+window.addEventListener("beforeunload", () => {
+	detachMouseListener();
+	stopAnimationLoop();
+});

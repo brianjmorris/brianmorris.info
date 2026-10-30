@@ -1,49 +1,152 @@
 <%- include('../partials/header'); %>
-        
-		<nav id="menu" class="mobile-menu flex-container hidden" aria-label="Mobile">
-			<h2 class="info-section-title hidden">Menu</h2>
-			<a href="#contact" id="contact-mobile-nav-link" class="flex-item" title="View Contact Info">Contact</a>
-			<a href="#resume" id="resume-mobile-nav-link" class="flex-item" title="View Resume Info">Resume</a>
-			<a href="#education" id="education-mobile-nav-link" class="flex-item" title="View Education Info">Education</a>
-			<a href="#experience" id="experience-mobile-nav-link" class="flex-item" title="View Experience Info">Experience</a>
-			<a href="#involvement" id="involvement-mobile-nav-link" class="flex-item" title="View Involvement Info">Involvement</a>
-			<a href="#skills" id="skills-mobile-nav-link" class="flex-item" title="View Skills Info">Skills</a>
-			<a href="#stars" id="skills-mobile-nav-link" class="flex-item" title="Watch the stars">Stars</a>
-		</nav>
 
-		<section id="contact" class="info-section hidden">
-			<h2 class="info-section-title">Contact</h2>
-			<address id="address" class="flex-container">
-				<span style="display: none;">
-					Brian Morris<br>
-					<a href="https://goo.gl/maps/Cf6GVy2AGyNcvYT7A" title="View Halton Hills in Google Maps">
-						Halton Hills, ON
-					</a><br>
-				</span>
-				<a class="flex-item" href="tel:9058058318" title="Call Brian">(905) 805-8318</a>
-				<a class="flex-item" href="mailto:contact@brianmorris.info" title="Email Brian">contact@brianmorris.info</a>
-				<a class="flex-item" href="/VCF" target="_BLANK" title="Add Brian as a contact (VCF)">Add Contact</a>
-			</address>
-			<br class="hidden">
-		</section>
-		
-		<section id="resume" class="info-section hidden">
-			<h2 class="info-section-title">Resume</h2>
+		<!-- Intro Section -->
+		<section id="intro" class="info-section">
+			<h2 class="info-section-title">Introduction</h2>
 			<div class="flex-container">
-				<a class="flex-item" href="/DOCX" target="_BLANK" title="Download Brian's Resume as DOCX">DOCX</a>
-				<a class="flex-item" href="/PDF" target="_BLANK" title="View Brian's Resume as PDF">PDF</a>
-				<!-- <a class="flex-item" href="/JSON" target="_BLANK" title="View Brian's Resume as JSON">JSON</a> -->
+				<div class="flex-item">
+					<h3 class="info-item-title">Big Data Production Support Lead • Azure • Hadoop • SQL</h3>
+					<div class="info-item-details">
+						<p>
+							I'm a production support and systems analyst lead based in Ontario, Canada, with 6+ years of experience supporting enterprise big data platforms in banking. My work focuses on incident triage, job failure analysis, SLA-driven operations, cloud migration support, team coordination, and practical process improvement.
+						</p>
+						<p>
+							I support data ingestion and extraction workflows across Hadoop and Azure-based environments, including Azure Data Factory, Azure Databricks, Azure Data Lake Storage, SQL Server, and related scheduling and orchestration tools.
+						</p>
+					</div>
+				</div>
 			</div>
-			<br class="hidden">
 		</section>
-		
-		<section id="education" class="info-section hidden">
+
+		<!-- Professional Summary Section -->
+		<section id="about" class="info-section">
+			<h2 class="info-section-title">About</h2>
+			<div class="flex-container">
+				<div class="flex-item">
+					<h3 class="info-item-title">Production Support, Data Platforms & Team Leadership</h3>
+					<div class="info-item-details">
+						<p>
+							My role combines technical investigation, operational discipline, stakeholder communication, and team leadership. I help keep enterprise data workflows running reliably by analyzing failures, coordinating reruns, managing escalations, and working with development, L3, platform, and business teams when deeper investigation or code changes are required.
+						</p>
+						<p style="margin-top: 1em;">
+							Outside of work, I play percussion with the Acton Citizens' Band and maintain its public website. I enjoy building practical web, data, cloud, and automation solutions that solve real problems.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Experience Section -->
+		<section id="experience" class="info-section">
+			<h2 class="info-section-title">Experience</h2>
+			<div class="flex-container">
+				<div class="flex-item">
+					<h3 class="info-item-title">DaaS L2 Production Application Support Team Lead</h3>
+					<div class="info-item-details">
+						Tata Consultancy Services / TD Bank<br>
+						Toronto, ON<br>
+						January 2020 - Present<br>
+						<ul class="info-item-highlights">
+							<li>Lead L2 production support for enterprise big data ingestion and extraction workflows across on-prem and Azure-based environments.</li>
+							<li>Coordinate daily triage across incidents, job failures, reruns, dependency issues, service requests, and escalations.</li>
+							<li>Analyze logs, SQL queries, job metadata, scheduling patterns, and failure history to determine next steps.</li>
+							<li>Support workloads involving Azure Data Factory, Azure Databricks, Azure Data Lake Storage, SQL Server, Hadoop, Hive, HDFS, Spark, Oozie, Sqoop, and related tools.</li>
+							<li>Engage L3, development, platform, and business teams when deeper investigation, platform support, or code changes are required.</li>
+							<li>Help guide team training and operational readiness during migration from on-prem big data platforms to Azure cloud.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Skills Section -->
+		<section id="skills" class="info-section">
+			<h2 class="info-section-title">Core Skills</h2>
+			<div class="flex-container">
+				<div class="flex-item">
+					<h3 class="info-item-title">Production Support</h3>
+					<div class="info-item-details">
+						<ul class="info-item-highlights">
+							<li>Incident triage and root cause analysis</li>
+							<li>SLA-driven operations and escalation handling</li>
+							<li>Job reruns, dependency checks, and scheduling investigation</li>
+							<li>Problem management, audit support, and operational reporting</li>
+							<li>Team coordination, training, and stakeholder communication</li>
+						</ul>
+					</div>
+				</div>
+				<br class="hidden">
+				<div class="flex-item">
+					<h3 class="info-item-title">Azure & Data Platforms</h3>
+					<div class="info-item-details">
+						<ul class="info-item-highlights">
+							<li>Azure Data Factory, Azure Databricks, and Azure Data Lake Storage</li>
+							<li>Azure Synapse and SQL Server / SSMS</li>
+							<li>Hadoop, Hive, HDFS, Spark, Oozie, Sqoop, and Kafka</li>
+							<li>Data ingestion, extraction, orchestration, and production workflow support</li>
+						</ul>
+					</div>
+				</div>
+				<br class="hidden">
+				<div class="flex-item">
+					<h3 class="info-item-title">Development & Tools</h3>
+					<div class="info-item-details">
+						<ul class="info-item-highlights">
+							<li>SQL, T-SQL, JavaScript, TypeScript, HTML, CSS, and Node.js</li>
+							<li>React, EJS, Firebase, and Cloudflare Workers</li>
+							<li>Git, Bitbucket, TFS, Jenkins, JIRA, and Visual Studio</li>
+							<li>Process improvement, automation, and technical documentation</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects" class="info-section">
+			<h2 class="info-section-title">Projects</h2>
+			<div class="flex-container">
+				<div class="flex-item">
+					<h3 class="info-item-title">Acton Citizens' Band Website</h3>
+					<div class="info-item-details">
+						<p>
+							I designed and maintain the public website for the Acton Citizens' Band, a long-running community concert and marching band in Acton, Ontario. The site supports community visibility, event communication, member recruitment, junior band promotion, and public contact.
+						</p>
+						<ul class="info-item-highlights">
+							<li>Built and maintain a public-facing website for a community organization.</li>
+							<li>Created structured sections for band information, events, learning, joining, and contact.</li>
+							<li>Support ongoing updates for concerts, community events, and recruitment.</li>
+							<li>Combine technical web work with community involvement and communications.</li>
+						</ul>
+						<p style="margin-top: 1em;">
+							<a href="https://actoncitizensband.ca" target="_BLANK" title="Visit the Acton Citizens' Band website">Visit actoncitizensband.ca →</a>
+						</p>
+					</div>
+				</div>
+				<br class="hidden">
+				<div class="flex-item">
+					<h3 class="info-item-title">Selected Internal Technical Work</h3>
+					<div class="info-item-details">
+						<p>
+							Some of my most relevant technical work is internal to enterprise environments, so it cannot be shared publicly as a traditional portfolio. These examples summarize the type of work I do without exposing client systems or confidential details.
+						</p>
+						<ul class="info-item-highlights">
+							<li>Created SQL-based analysis to investigate job dependencies, runtime windows, and scheduling issues.</li>
+							<li>Supported operational transition from on-prem data platforms to Azure-based ingestion and processing workflows.</li>
+							<li>Improved repeatable support processes for recurring job failures, reruns, and escalation paths.</li>
+							<li>Helped train and guide support team members through platform, process, and operational changes.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Education Section -->
+		<section id="education" class="info-section">
 			<h2 class="info-section-title">Education</h2>
 			<div class="flex-container">
 				<div class="flex-item">
-					<div class="info-item-title">
-						Bachelor of Computer Science
-					</div>
+					<h3 class="info-item-title">Bachelor of Computer Science</h3>
 					<div class="info-item-details">
 						Algoma University<br>
 						Sault Ste. Marie, ON<br>
@@ -55,9 +158,7 @@
 				</div>
 				<br class="hidden">
 				<div class="flex-item">
-					<div class="info-item-title">
-						Systems Analyst Co-op Advanced Diploma
-					</div>
+					<h3 class="info-item-title">Systems Analyst Co-op Advanced Diploma</h3>
 					<div class="info-item-details">
 						Sheridan College<br>
 						Brampton, ON<br>
@@ -67,262 +168,44 @@
 						</ul>
 					</div>
 				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Ontario Secondary School Diploma
-					</div>
-					<div class="info-item-details">
-						Acton District High School<br>
-						Acton, ON<br>
-						2010 - 2014<br>
-						<ul class="info-item-highlights">
-							<li>Ontario Scholar</li>
-						</ul>
-					</div>
-				</div>
 			</div>
-			<br class="hidden">
 		</section>
-		
-		<section id="experience" class="info-section hidden">
-			<h2 class="info-section-title">Experience</h2>
+
+		<!-- Community Section -->
+		<section id="community" class="info-section">
+			<h2 class="info-section-title">Community</h2>
 			<div class="flex-container">
 				<div class="flex-item">
-					<div class="info-item-title">
-						Big Data Analyst
-					</div>
-					<div class="info-item-details">
-						Tata Consultancy Services<br>
-						Toronto, ON<br>
-						January 2020 - Present<br>
-						<ul class="info-item-highlights">
-							<li>Segment lead on the Production Systems and Support team for TD's Big Data Platform (EDPP)</li>
-							<li>Supporting the transition of 400 ingestion sources from on-prem (Hadoop) to Azure (ADF/ADB/ADLS)</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Computer Science Teaching Assistant
-					</div>
-					<div class="info-item-details">
-						Algoma University<br>
-						Sault Ste. Marie, ON<br>
-						January 2019 - April 2019<br>
-						<ul class="info-item-highlights">
-							<li>Courses: Java 2 and Data Structures 2</li>
-							<li>Fostered student growth, inspiration & leadership</li>
-							<li>Applied responsible time management in a lenient work environment</li>
-							<li>Developed solutions to improve faculty workflow efficiency</li>
-							<li>Lab instruction, student support, assignment marking & exam proctoring</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-							PHP/Firebase Consultant & Developer
-					</div>
-					<div class="info-item-details">
-						Soo Food Finder<br>
-						Sault Ste. Marie, ON<br>
-						September 2018 - November 2018<br>
-						<ul class="info-item-highlights">
-							<li>Implemented a dynamic content management interface for a restructured key-value Firebase database</li>
-							<li>Significantly improved administrators' ability to address food justice and food access in Sault Ste. Marie</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						SharePoint Consultant & Developer
-					</div>
-					<div class="info-item-details">
-						Meridian Credit Union<br>
-						Toronto, ON<br>
-						September 2, 2017 - December 2017<br>
-						<ul class="info-item-highlights">
-							<li>Designed and implemented a Learning Management System within Meridian's intranet</li>
-							<li>Enabled every employee to pursue self learning</li>
-							<li>Implemented with 2 sites, few lists/libraries, CSS, JavaScript and SharePoint's Client-Side Object Model</li>
-							<li>Clean, intuitive design for end users and content management including featured and popular content</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Junior Programmer Analyst Co-op
-					</div>
-					<div class="info-item-details">
-						Meridian Credit Union<br>
-						Toronto, ON<br>
-						May 8, 2017 - September 1, 2017<br>
-						August 29, 2016 - January 6, 2017<br>
-						January 4, 2016 - May 9, 2016<br>
-						<ul class="info-item-highlights">
-							<li>SharePoint administration and development</li>
-							<li>Set up SharePoint Team Sites and assisted in training for 30+ site owners from a variety of departments</li>
-							<li>Created custom site collection branding, timer jobs, event receivers, workflows and InfoPath forms</li>
-							<li>Heightened data security, teamwork in a programming environment</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<br class="hidden">
-		</section>
-	
-		<section id="involvement" class="info-section hidden">
-			<h2 class="info-section-title">Involvement</h2>
-			<div class="flex-container">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Acton Citizens' Band
-					</div>
+					<h3 class="info-item-title">Acton Citizens' Band</h3>
 					<div class="info-item-details">
 						Webmaster & Percussionist<br>
 						September 2005 - Present<br>
 						<ul class="info-item-highlights">
-							<li>Webmaster, committee member, percussion, trumpet, clarinet</li>
-							<li>Performing in concerts and parades for charities and community benefits</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Algoma University Computer Science Club
-					</div>
-					<div class="info-item-details">
-						Vice President<br>
-						September 2018 - April 2019<br>
-						<ul class="info-item-highlights">
-							<li>Encouraged interest, growth and enthusiasm in computer science and related fields</li>
-							<li>Planning, fundraising, organizing and hosting events</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Acton Junior Band
-					</div>
-					<div class="info-item-details">
-						Mentor<br>
-						September 2014 - May 2016<br>
-						<ul class="info-item-highlights">
-							<li>Developed leadership and skills in music</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						DementiaHack Toronto
-					</div>
-					<div class="info-item-details">
-						Participant<br>
-						November 7, 2015 - November 9, 2015<br>
-						<ul class="info-item-highlights">
-							<li>Assisted Dementia research through prototyping competition</li>
-							<li>Fast-paced teamwork and software/hardware experience</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Community Clean Up: Prospect Park
-					</div>
-					<div class="info-item-details">
-						Assistant Organizer<br>
-						October 3, 2015<br>
-						<ul class="info-item-highlights">
-							<li>Event coordination, project management</li>
-							<li>Dedicated environmental awareness</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Acton Houseleague Hockey
-					</div>
-					<div class="info-item-details">
-						Assistant Coach<br>
-						September 2013 - March 2014<br>
-						<ul class="info-item-highlights">
-							<li>Developed leadership and hockey skills in mature players</li>
+							<li>Maintain the band's website and support public communications.</li>
+							<li>Perform in concerts, parades, and community events.</li>
+							<li>Contribute to a long-running local organization through music, technology, and volunteer support.</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			<br class="hidden">
 		</section>
-	
-		<section id="skills" class="info-section hidden">
-			<h2 class="info-section-title">Skills</h2>
+
+		<!-- Contact Section -->
+		<section id="contact" class="info-section">
+			<h2 class="info-section-title">Contact</h2>
 			<div class="flex-container">
 				<div class="flex-item">
-					<div class="info-item-title">
-						Experienced
-					</div>
+					<h3 class="info-item-title">Get in Touch</h3>
 					<div class="info-item-details">
-						<ul class="info-item-highlights">
-							<li>C#, ASP.NET</li>
-							<li>Java</li>
-							<li>JavaScript, HTML, CSS, SCSS</li>
-							<li>Leadership, Teamwork, Communication</li>
-							<li>Object Oriented Programming and Design with UML, OOP</li>
-							<li>PHP</li>
-							<li>RESTful Web Services and APIs</li>
-							<li>SharePoint, InfoPath</li>
-							<li>SQL</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Intermediate
-					</div>
-					<div class="info-item-details">
-						<ul class="info-item-highlights">
-							<li>Cloud Web Hosting, Serverless Hosting, Firebase</li>
-							<li>Git, TFS, SVN</li>
-							<li>Hybrid Mobile Appications, Cordova</li>
-							<li>Linux</li>
-							<li>Node.js, EJS</li>
-							<li>Software Development Life Cycle</li>
-							<li>Systems Analysis, Project Management</li>
-						</ul>
-					</div>
-				</div>
-				<br class="hidden">
-				<div class="flex-item">
-					<div class="info-item-title">
-						Fundamentals
-					</div>
-					<div class="info-item-details">
-						<ul class="info-item-highlights">
-							<li>Access</li>
-							<li>Android</li>
-							<li>Artificial Intelligence, AI</li>
-							<li>AWS, Azure, Cloud Computing</li>
-							<li>Azure</li>
-							<li>C</li>
-							<li>C++</li>
-							<li>Microsoft SQL Report Builder</li>
-							<li>Multithreading</li>
-							<li>Swift, Objective-C, iOS</li>
-						</ul>
+						<p>
+							I'm based in Ontario, Canada and am interested in opportunities related to cloud support, data platform support, production operations, SRE-adjacent support, and technical team leadership.
+						</p>
+						<p style="margin-top: 1em;">
+							<a href="mailto:contact@brianmorris.info" title="Email Brian">contact@brianmorris.info</a>
+						</p>
 					</div>
 				</div>
 			</div>
-			<br class="hidden">
 		</section>
 
 <%- include('../partials/footer'); %>

@@ -2,13 +2,14 @@ var headerTitleLink;
 var headerTitle;
 var headerLocationInfo;
 var headerLocationInfoLink;
-var headerNav;
-var headerNavLinks;
-var mobileMenuButton;
+var headerSocialLinks;
+// var headerNav;
+// var headerNavLinks;
+// var mobileMenuButton;
 var mainContent;
-var footer;
+// var footer;
 var overlay;
-var defaultSectionId = "contact";
+var defaultSectionId = "home";
 var fadeLength = 3000;
 
 var foregroundHidden = true;
@@ -16,13 +17,14 @@ var currentSection;
 
 var hashEnum = {
     menu: 0,
-    contact: 1,
-    resume: 2,
-    education: 3,
-    experience: 4,
+    home: 1,
+    contact: 2,
+    resume: 3,
+    education: 4,
+    experience: 5,
     involvement: 5,
-    skills: 6,
-    stars: 7
+    skills: 7,
+    stars: 8
   };
 
 window.onload = function () {
@@ -30,11 +32,12 @@ window.onload = function () {
     headerTitleLink = document.getElementById("header-title-link");
     headerLocationInfo = document.getElementById("header-location-info");
     headerLocationInfoLink = document.getElementById("header-location-info-link");
-    headerNav = document.getElementById("header-nav");
-    headerNavLinks = document.getElementsByClassName("header-nav-item");
-    mobileMenuButton = document.getElementById("mobile-menu-button");
+    headerSocialLinks = document.getElementById("header-links");
+    // headerNav = document.getElementById("header-nav");
+    // headerNavLinks = document.getElementsByClassName("header-nav-item");
+    // mobileMenuButton = document.getElementById("mobile-menu-button");
     mainContent = document.getElementById("content");
-    footer = document.getElementById("footer");
+    // footer = document.getElementById("footer");
     overlay = document.getElementById("overlay");
 
     initStars();
@@ -54,13 +57,14 @@ function hashChange() {
         var invalidHash = false;
     
         if(!isNaN(hashNum)){
-            if(hashNum == 7) {
+            if(hashNum == 8) {
                 foregroundHidden = false;
                 toggleForeground();
-            } else if(0 <= hashNum && hashNum <= 7) {
+            } else if(0 <= hashNum && hashNum < 8) {
                 foregroundHidden = true;
                 toggleForeground();
-                displaySection(hashValue);
+                // displaySection(hashValue);
+                displaySection('home');
             } else {
                 invalidHash = true;
             }
@@ -84,33 +88,37 @@ function displaySection(sectionId) {
 
     if(currentSection) {
         currentSection.classList.add("hidden");
-        currentSectionHeaderNavItem = document.getElementById(currentSection.id + "-header-nav-item");
+        // currentSectionHeaderNavItem = document.getElementById(currentSection.id + "-header-nav-item");
 
-        if(currentSectionHeaderNavItem) {
-            currentSectionHeaderNavItem.classList.remove("active");
-        }
+        // if(currentSectionHeaderNavItem) {
+        //     currentSectionHeaderNavItem.classList.remove("active");
+        // }
     }
 
-    if(sectionId == "menu") {
-        if(currentSection) {
-            mobileMenuButton.href = "#" + currentSection.id;
-        } else {
-            mobileMenuButton.href = "#" + defaultSectionId;
-        }
-    } else {
-        mobileMenuButton.href = "#menu";
-    }
+    // if(sectionId == "menu") {
+    //     if(currentSection) {
+    //         // mobileMenuButton.href = "#" + currentSection.id;
+    //     } else {
+    //         // mobileMenuButton.href = "#" + defaultSectionId;
+    //     }
+    // } else {
+    //     // mobileMenuButton.href = "#menu";
+    // }
 
     mainContent.scrollLeft = 0;
     mainContent.scrollTop = 0;
 
     currentSection = document.getElementById(sectionId);
-    currentSection.classList.remove("hidden");
-    currentSectionHeaderNavItem = document.getElementById(currentSection.id + "-header-nav-item");
-
-    if(currentSectionHeaderNavItem) {
-        currentSectionHeaderNavItem.classList.add("active");
+    if(!currentSection) {
+        console.error(`Section with id "${sectionId}" not found in DOM`);
+        return;
     }
+    currentSection.classList.remove("hidden");
+    // currentSectionHeaderNavItem = document.getElementById(currentSection.id + "-header-nav-item");
+
+    // if(currentSectionHeaderNavItem) {
+    //     currentSectionHeaderNavItem.classList.add("active");
+    // }
 
     location.hash = sectionId;
 }
@@ -121,40 +129,42 @@ function toggleForeground() {
         headerTitleLink.title = "Watch the stars";
 
         overlay.style.display = "none";
-        mobileMenuButton.classList.remove("deactivated-link");
+        // mobileMenuButton.classList.remove("deactivated-link");
         headerLocationInfoLink.classList.remove("deactivated-link");
 
-        for(var i = 0; i < headerNavLinks.length; i++) {
-            headerNavLinks[i].classList.remove("deactivated-link");
-        }
+        // for(var i = 0; i < headerNavLinks.length; i++) {
+        //     headerNavLinks[i].classList.remove("deactivated-link");
+        // }
 
         headerTitle.style.opacity = "1";
         mainContent.style.opacity = "1";
-        mobileMenuButton.style.opacity = "1";
-        headerNav.style.opacity = "1";
+        // mobileMenuButton.style.opacity = "1";
+        // headerNav.style.opacity = "1";
+        headerSocialLinks.style.opacity = "1";
         headerLocationInfo.style.opacity = "1";
-        footer.style.opacity = "1";
+        // footer.style.opacity = "1";
 
         foregroundHidden = false;
     } else {
-        var newHash = currentSection ? currentSection.id : "";
+        var newHash = currentSection ? currentSection.id : "home";
         headerTitleLink.href = "#" + newHash;
         headerTitleLink.title = "Show Content";
 
         overlay.style.display = "block";
-        mobileMenuButton.classList.add("deactivated-link");
+        // mobileMenuButton.classList.add("deactivated-link");
         headerLocationInfoLink.classList.add("deactivated-link");
 
-        for(var j = 0; j < headerNavLinks.length; j++) {
-            headerNavLinks[j].classList.add("deactivated-link");
-        }
+        // for(var j = 0; j < headerNavLinks.length; j++) {
+        //     headerNavLinks[j].classList.add("deactivated-link");
+        // }
 
         headerTitle.style.opacity = "0.1";
         mainContent.style.opacity = "0";
-        mobileMenuButton.style.opacity = "0";
-        headerNav.style.opacity = "0";
+        headerSocialLinks.style.opacity = "0";
+        // mobileMenuButton.style.opacity = "0";
+        // headerNav.style.opacity = "0";
         headerLocationInfo.style.opacity = "0";
-        footer.style.opacity = "0";
+        // footer.style.opacity = "0";
 
         foregroundHidden = true;
     }
