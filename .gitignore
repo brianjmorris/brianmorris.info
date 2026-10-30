@@ -1,26 +1,28 @@
-# Dependencies
+# Installed dependencies (root and nested packages)
 node_modules/
-functions/node_modules/
 
-# Environment
+# Local backup copies: append .bak to the full filename
+*.bak
+
+# Personal planning document kept locally
+/ROADMAP.md
+
+# Local environment and emulator secrets; keep sanitized examples
 .env
-.env.local
+.env.*
+!.env.example
+.secret.local
 
-# IDE
+# Firebase local state and diagnostic logs
+.firebase/
+*-debug.log*
+
+# Generated Sass source maps and test coverage
+src/css/*.css.map
+coverage/
+
+# Editor and operating system files
 .vscode/
 .idea/
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-
-# Firebase
-.firebase/
-
-# Build outputs
-public/style/*.min.css
-public/js/merged.min.js
