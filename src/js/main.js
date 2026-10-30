@@ -1,171 +1,40 @@
-var headerTitleLink;
-var headerTitle;
-var headerLocationInfo;
-var headerLocationInfoLink;
-var headerSocialLinks;
-// var headerNav;
-// var headerNavLinks;
-// var mobileMenuButton;
-var mainContent;
-// var footer;
-var overlay;
-var defaultSectionId = "home";
-var fadeLength = 3000;
+(() => {
+    const initNavigation = () => {
+        const header = document.getElementById('header');
+        const content = document.getElementById('content');
+        const exitLink = document.getElementById('stars-exit');
+        const titleLink = document.getElementById('header-title-link');
+        let returnHash = '#title';
+        let starsVisible = false;
 
-var foregroundHidden = true;
-var currentSection;
-
-var hashEnum = {
-    menu: 0,
-    home: 1,
-    contact: 2,
-    resume: 3,
-    education: 4,
-    experience: 5,
-    involvement: 5,
-    skills: 7,
-    stars: 8
-  };
-
-window.onload = function () {
-    headerTitle = document.getElementById("header-title");
-    headerTitleLink = document.getElementById("header-title-link");
-    headerLocationInfo = document.getElementById("header-location-info");
-    headerLocationInfoLink = document.getElementById("header-location-info-link");
-    headerSocialLinks = document.getElementById("header-links");
-    // headerNav = document.getElementById("header-nav");
-    // headerNavLinks = document.getElementsByClassName("header-nav-item");
-    // mobileMenuButton = document.getElementById("mobile-menu-button");
-    mainContent = document.getElementById("content");
-    // footer = document.getElementById("footer");
-    overlay = document.getElementById("overlay");
-
-    initStars();
-
-    window.onhashchange = hashChange;
-    
-    hashChange();
-};
-
-function hashChange() {
-    if(location.hash == "") {
-        displaySection(defaultSectionId);
-    } else {
-        var hashValue = location.hash.toLowerCase().substring(1);
-
-        var hashNum = hashEnum[hashValue];
-        var invalidHash = false;
-    
-        if(!isNaN(hashNum)){
-            if(hashNum == 8) {
-                foregroundHidden = false;
-                toggleForeground();
-            } else if(0 <= hashNum && hashNum < 8) {
-                foregroundHidden = true;
-                toggleForeground();
-                // displaySection(hashValue);
-                displaySection('home');
-            } else {
-                invalidHash = true;
+        const updateView = () => {
+            const showStars = window.location.hash.toLowerCase() === '#stars';
+            if (!showStars) {
+                returnHash = window.location.hash || '#title';
             }
-        } else {
-            invalidHash = true;
-        }
-        
-        if(invalidHash) {
-            console.log("Invalid hash value: " + hashValue);
-            console.log("Hash options:", Object.keys(hashEnum));
-            location.hash = "";
-            displaySection(defaultSectionId);
-        }
-    }
-}
 
-function displaySection(sectionId) {
-    if(!sectionId) {
-        sectionId = defaultSectionId;
-    }
+            document.body.classList.toggle('stars-only', showStars);
+            header.inert = showStars;
+            content.inert = showStars;
+            exitLink.hidden = !showStars;
+            exitLink.setAttribute('href', returnHash);
 
-    if(currentSection) {
-        currentSection.classList.add("hidden");
-        // currentSectionHeaderNavItem = document.getElementById(currentSection.id + "-header-nav-item");
+            if (showStars && !starsVisible) {
+                exitLink.focus({ preventScroll: true });
+            } else if (!showStars && starsVisible) {
+                titleLink.focus({ preventScroll: true });
+            }
+            starsVisible = showStars;
+        };
 
-        // if(currentSectionHeaderNavItem) {
-        //     currentSectionHeaderNavItem.classList.remove("active");
-        // }
-    }
+        window.addEventListener('hashchange', updateView);
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && starsVisible) {
+                window.location.hash = returnHash;
+            }
+        });
+        updateView();
+    };
 
-    // if(sectionId == "menu") {
-    //     if(currentSection) {
-    //         // mobileMenuButton.href = "#" + currentSection.id;
-    //     } else {
-    //         // mobileMenuButton.href = "#" + defaultSectionId;
-    //     }
-    // } else {
-    //     // mobileMenuButton.href = "#menu";
-    // }
-
-    mainContent.scrollLeft = 0;
-    mainContent.scrollTop = 0;
-
-    currentSection = document.getElementById(sectionId);
-    if(!currentSection) {
-        console.error(`Section with id "${sectionId}" not found in DOM`);
-        return;
-    }
-    currentSection.classList.remove("hidden");
-    // currentSectionHeaderNavItem = document.getElementById(currentSection.id + "-header-nav-item");
-
-    // if(currentSectionHeaderNavItem) {
-    //     currentSectionHeaderNavItem.classList.add("active");
-    // }
-
-    location.hash = sectionId;
-}
-
-function toggleForeground() {
-    if(foregroundHidden) {
-        headerTitleLink.href = "#stars";
-        headerTitleLink.title = "Watch the stars";
-
-        overlay.style.display = "none";
-        // mobileMenuButton.classList.remove("deactivated-link");
-        headerLocationInfoLink.classList.remove("deactivated-link");
-
-        // for(var i = 0; i < headerNavLinks.length; i++) {
-        //     headerNavLinks[i].classList.remove("deactivated-link");
-        // }
-
-        headerTitle.style.opacity = "1";
-        mainContent.style.opacity = "1";
-        // mobileMenuButton.style.opacity = "1";
-        // headerNav.style.opacity = "1";
-        headerSocialLinks.style.opacity = "1";
-        headerLocationInfo.style.opacity = "1";
-        // footer.style.opacity = "1";
-
-        foregroundHidden = false;
-    } else {
-        var newHash = currentSection ? currentSection.id : "home";
-        headerTitleLink.href = "#" + newHash;
-        headerTitleLink.title = "Show Content";
-
-        overlay.style.display = "block";
-        // mobileMenuButton.classList.add("deactivated-link");
-        headerLocationInfoLink.classList.add("deactivated-link");
-
-        // for(var j = 0; j < headerNavLinks.length; j++) {
-        //     headerNavLinks[j].classList.add("deactivated-link");
-        // }
-
-        headerTitle.style.opacity = "0.1";
-        mainContent.style.opacity = "0";
-        headerSocialLinks.style.opacity = "0";
-        // mobileMenuButton.style.opacity = "0";
-        // headerNav.style.opacity = "0";
-        headerLocationInfo.style.opacity = "0";
-        // footer.style.opacity = "0";
-
-        foregroundHidden = true;
-    }
-}
+    document.addEventListener('DOMContentLoaded', initNavigation, { once: true });
+})();

@@ -345,14 +345,29 @@ a.deactivated-link {
   }
 }
 
-#overlay {
-  z-index: 998;
+body.stars-only {
+  overflow: hidden;
+}
+
+.stars-only #header,
+.stars-only #content {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#stars-exit {
+  z-index: 1000;
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.75rem 1rem;
+  background: $background-color;
+  border: 1px solid $secondary-hex;
+  border-radius: 0.25rem;
+}
+
+#stars-exit:focus-visible,
+#header-title-link:focus-visible {
+  outline: 2px solid $primary-hex;
+  outline-offset: 4px;
 }
