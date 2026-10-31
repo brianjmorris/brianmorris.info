@@ -25,7 +25,7 @@ const groups = [
   [['/contact', '/phone', '/email'], '/#contact'],
   [['/star', '/stars', '/tree', '/trees', '/sky'], '/#stars'],
   [['/vcf', '/vcard', '/v-card', '/contact.vcf', '/save-contact'], '/brianmorris.vcf'],
-  [['/profile', '/pic', '/picture', '/photo', '/image', '/face'], '/img/Brian-Morris.jpg'],
+  [['/profile', '/pic', '/picture', '/photo', '/image', '/face'], '/img/Brian-Morris-Central-Park-Square.jpg'],
   [['/education', '/school', '/academic'], '/#education'],
   [['/experience', '/work'], '/#experience'],
   [['/involvement', '/community', '/volunteer'], '/#community'],

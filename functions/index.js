@@ -37,7 +37,7 @@ addAliases(['resume', 'cv'], '/brianmorris.pdf');
 addAliases(['contact', 'phone', 'email'], '/#contact');
 addAliases(['star', 'stars', 'tree', 'trees', 'sky'], '/#stars');
 addAliases(['vcf', 'vcard', 'v-card', 'contact.vcf', 'save-contact'], '/brianmorris.vcf');
-addAliases(['profile', 'pic', 'picture', 'photo', 'image', 'face'], '/img/Brian-Morris.jpg');
+addAliases(['profile', 'pic', 'picture', 'photo', 'image', 'face'], '/img/Brian-Morris-Central-Park-Square.jpg');
 addAliases(['education', 'school', 'academic'], '/#education');
 addAliases(['experience', 'work'], '/#experience');
 addAliases(['involvement', 'community', 'volunteer'], '/#community');
