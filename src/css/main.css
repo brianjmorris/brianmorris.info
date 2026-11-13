@@ -274,7 +274,7 @@ h3 {
 .technical-details {
   margin-block: 2rem;
   padding-block: 1.5rem;
-  border-block: 1px solid rgba(255, 255, 255, 0.1411764706);
+  border-top: 1px solid rgba(255, 255, 255, 0.1411764706);
 }
 
 .technical-details h3 {
@@ -298,12 +298,9 @@ h3 {
   font-size: 0.9rem;
 }
 
-.project-history {
-  margin-top: 2rem;
-}
-
-.project-history p {
-  color: #c9cdca;
+.project-list {
+  display: grid;
+  gap: 1.5rem;
 }
 
 .project-feature {
@@ -314,11 +311,15 @@ h3 {
 }
 
 .project-feature h3 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 
 .project-feature p:not(.eyebrow) {
   color: #c9cdca;
+}
+
+.project-feature > :last-child {
+  margin-bottom: 0;
 }
 
 .project-feature .button {

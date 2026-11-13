@@ -29,6 +29,12 @@
     display: none;
   }
 }
+@media (min-width: 761px) and (max-width: 1000px) {
+  .page-section {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: 2rem;
+  }
+}
 @media (hover: none) and (pointer: coarse), (width < 510px), (height < 375px) {
   .stargazing {
     display: none;

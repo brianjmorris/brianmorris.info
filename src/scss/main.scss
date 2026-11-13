@@ -53,16 +53,16 @@ h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
 .skills-line { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 1.75rem 0; font-size: 0.78rem; color: $accent; }
 .skills-line li { padding: 0.25rem 0.75rem; border: 1px solid #4c886260; border-radius: 4px; background: #1c2b22; }
 .education-note { font-size: 0.85rem; }
-.technical-details { margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid #ffffff24; }
+.technical-details { margin-block: 2rem; padding-block: 1.5rem; border-top: 1px solid #ffffff24; }
 .technical-details h3 { font-size: 1.1rem; }
 .technical-details dl { margin: 1.25rem 0 0; }
 .technical-details dt { color: $accent; font-size: 0.8rem; font-weight: 650; margin-top: 1rem; }
 .technical-details dd { color: $muted; margin: 0.25rem 0 0; font-size: 0.9rem; }
-.project-history { margin-top: 2rem; }
-.project-history p { color: $muted; }
+.project-list { display: grid; gap: 1.5rem; }
 .project-feature { background: #202420; border: 1px solid #ffffff1c; padding: 2rem; border-radius: 6px; }
-.project-feature h3 { font-size: 1.8rem; }
+.project-feature h3 { font-size: 1.4rem; }
 .project-feature p:not(.eyebrow) { color: $muted; }
+.project-feature > :last-child { margin-bottom: 0; }
 .project-feature .button { margin-top: 0.5rem; }
 .email-link { font-size: clamp(1rem, 2.4vw, 1.4rem); overflow-wrap: anywhere; }
 .contact-links { gap: 1rem 1.5rem; }

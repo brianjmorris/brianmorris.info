@@ -9,6 +9,10 @@
   .desktop-break { display: none; }
 }
 
+@media (min-width: 761px) and (max-width: 1000px) {
+  .page-section { grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 2rem; }
+}
+
 // Stargazing needs a mouse-like pointer and at least 510 × 375px of sky.
 @media (hover: none) and (pointer: coarse), (width < 510px), (height < 375px) {
   .stargazing { display: none; }
