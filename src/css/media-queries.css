@@ -1,71 +1,37 @@
-@media only screen and (max-height: 500px) {
-  body, html {
-    font-size: 14px;
+@media (max-width: 760px) {
+  #content {
+    width: calc(100% - 2.5rem);
   }
-  #header {
-    font-size: 2vw;
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-block: 3.5rem;
   }
-  #header #mobile-menu-button {
-    height: 4vw;
-    margin: 0.7vw 2vw;
+  .intro .portrait {
+    width: min(280px, 85%);
+    justify-self: center;
   }
-  #content #menu .flex-item,
-  #content #contact .flex-item,
-  #content #resume .flex-item {
-    font-size: 3vw;
-    margin: 1vw 0;
+  .intro-copy h1 {
+    font-size: clamp(3rem, 11vw, 4.5rem);
   }
-  #content .flex-container .flex-item {
-    margin: 1vw 0;
+  .page-section {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding-block: 2.5rem;
   }
-}
-@media only screen and (min-width: 800px) {
-  body, html {
-    font-size: 20px;
+  h2 {
+    max-width: none;
   }
-  #mobile-menu-button {
+  .project-feature {
+    padding: 1.5rem;
+  }
+  .desktop-break {
     display: none;
   }
-  #header {
-    font-size: 2vw;
-  }
-  #header #header-nav {
-    display: block;
-  }
-  #menu {
-    display: none !important;
-  }
-  #content .flex-container .flex-item {
-    margin: 2vw 0;
-    padding: 1.5vw;
-  }
-  #content #contact .flex-container,
-  #content #resume .flex-container,
-  #content #skills .flex-container {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  #content #contact .flex-item,
-  #content #resume .flex-item,
-  #content #skills .flex-item {
-    flex: 1;
-    flex-shrink: 1;
-    flex-grow: 1;
-  }
-  @supports not ((flex-direction: column) or (justify-content: space-around)) {
-    #content .flex-container {
-      flex-direction: row;
-      justify-content: space-around;
-    }
-    #content .flex-item {
-      flex: 1;
-      flex-shrink: 1;
-      flex-grow: 1;
-    }
-  }
-  #content #contact .flex-container .flex-item,
-  #content #resume .flex-container .flex-item {
-    font-size: 1.5vw;
+}
+@media (hover: none) and (pointer: coarse), (width < 510px), (height < 375px) {
+  .stargazing {
+    display: none;
   }
 }
 

@@ -16,6 +16,7 @@ async function loadNavigation(hash = '') {
       hidden: id === 'stars-exit',
       inert: false,
       attributes: {},
+      addEventListener(name, callback) { this[name] = callback; },
       setAttribute(name, value) { this.attributes[name] = value; },
       focus: focusElement.bind(null, id),
     });
@@ -60,7 +61,6 @@ test('stars view hides foreground interaction and provides a return to the previ
   const page = await loadNavigation('#projects');
   page.navigate('#stars');
   assert.equal(page.classes.has('stars-only'), true);
-  assert.equal(page.elements.get('header').inert, true);
   assert.equal(page.elements.get('content').inert, true);
   assert.equal(page.elements.get('stars-exit').hidden, false);
   assert.equal(page.elements.get('stars-exit').attributes.href, '#projects');
@@ -68,10 +68,9 @@ test('stars view hides foreground interaction and provides a return to the previ
 
   page.navigate('#projects');
   assert.equal(page.window.location.hash, '#projects');
-  assert.equal(page.elements.get('header').inert, false);
   assert.equal(page.elements.get('content').inert, false);
   assert.equal(page.elements.get('stars-exit').hidden, true);
-  assert.equal(page.focused(), 'header-title-link');
+  assert.equal(page.focused(), 'page-title');
 });
 
 test('direct stars links can be exited with Escape', async () => {
@@ -81,6 +80,18 @@ test('direct stars links can be exited with Escape', async () => {
   assert.equal(page.window.location.hash, '#title');
   page.events.hashchange();
   assert.equal(page.classes.has('stars-only'), false);
+});
+
+test('the bottom stars link returns visitors to its position and restores keyboard focus', async () => {
+  const page = await loadNavigation();
+  page.elements.get('stars-start').click();
+  page.navigate('#stars');
+  assert.equal(page.elements.get('stars-exit').attributes.href, '#stargazing');
+  page.events.keydown({ key: 'Escape' });
+  assert.equal(page.window.location.hash, '#stargazing');
+  page.events.hashchange();
+  assert.equal(page.focused(), 'stars-start');
+  assert.equal(page.elements.get('content').inert, false);
 });
 
 test('history navigation restores the page without rewriting section hashes', async () => {

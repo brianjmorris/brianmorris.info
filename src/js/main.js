@@ -1,9 +1,9 @@
 (() => {
     const initNavigation = () => {
-        const header = document.getElementById('header');
         const content = document.getElementById('content');
         const exitLink = document.getElementById('stars-exit');
-        const titleLink = document.getElementById('header-title-link');
+        const titleLink = document.getElementById('page-title');
+        const starsLink = document.getElementById('stars-start');
         let returnHash = '#title';
         let starsVisible = false;
 
@@ -14,7 +14,6 @@
             }
 
             document.body.classList.toggle('stars-only', showStars);
-            header.inert = showStars;
             content.inert = showStars;
             exitLink.hidden = !showStars;
             exitLink.setAttribute('href', returnHash);
@@ -22,11 +21,13 @@
             if (showStars && !starsVisible) {
                 exitLink.focus({ preventScroll: true });
             } else if (!showStars && starsVisible) {
-                titleLink.focus({ preventScroll: true });
+                const returnLink = returnHash === '#stargazing' ? starsLink : titleLink;
+                returnLink.focus({ preventScroll: true });
             }
             starsVisible = showStars;
         };
 
+        starsLink.addEventListener('click', () => { returnHash = '#stargazing'; });
         window.addEventListener('hashchange', updateView);
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && starsVisible) {

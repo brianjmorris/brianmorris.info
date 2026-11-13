@@ -1,93 +1,15 @@
-@media only screen and (max-height: 500px) {
-  body, html {
-    font-size: 14px;
-  }
-
-  #header {
-    font-size: 2vw;
-
-    #mobile-menu-button {
-      height: 4vw;
-      margin: 0.7vw 2vw;
-    }
-  }
-
-  #content {
-    // top: 7.5vw;
-
-    #menu .flex-item,
-    #contact .flex-item,
-    #resume .flex-item {
-      font-size: 3vw;
-      margin: 1vw 0;
-    }
-
-    .flex-container .flex-item {
-      margin: 1vw 0;
-    }
-  }
+﻿@media (max-width: 760px) {
+  #content { width: calc(100% - 2.5rem); }
+  .intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 3.5rem; }
+  .intro .portrait { width: min(280px, 85%); justify-self: center; }
+  .intro-copy h1 { font-size: clamp(3rem, 11vw, 4.5rem); }
+  .page-section { grid-template-columns: 1fr; gap: 1.75rem; padding-block: 2.5rem; }
+  h2 { max-width: none; }
+  .project-feature { padding: 1.5rem; }
+  .desktop-break { display: none; }
 }
 
-@media only screen and (min-width: 800px) {
-  body, html {
-    font-size: 20px;
-  }
-
-  #mobile-menu-button {
-    display: none;
-  }
-
-  #header {
-    font-size: 2vw;
-  }
-
-  #header #header-nav {
-    display: block;
-  }
-
-  #menu {
-    display: none !important;
-  }
-
-  #content {
-    // top: 7.5vw;
-
-    .flex-container .flex-item {
-      margin: 2vw 0;
-      padding: 1.5vw;
-    }
-
-    #contact,
-    #resume,
-    #skills {
-      .flex-container {
-        flex-direction: row;
-        justify-content: space-around;
-      }
-  
-      .flex-item {
-        flex: 1;
-        flex-shrink: 1;
-        flex-grow: 1;
-      }
-    }
-
-    @supports not ((flex-direction: column) or (justify-content: space-around)) {
-      .flex-container {
-        flex-direction: row;
-        justify-content: space-around;
-      }
-  
-      .flex-item {
-        flex: 1;
-        flex-shrink: 1;
-        flex-grow: 1;
-      }
-    }
-    
-    #contact .flex-container .flex-item,
-    #resume .flex-container .flex-item {
-      font-size: 1.5vw;
-    }
-  }
+// Stargazing needs a mouse-like pointer and at least 510 × 375px of sky.
+@media (hover: none) and (pointer: coarse), (width < 510px), (height < 375px) {
+  .stargazing { display: none; }
 }

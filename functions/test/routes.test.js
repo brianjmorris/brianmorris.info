@@ -40,7 +40,7 @@ test('homepage renders without setting a cookie', async () => {
   assert.equal(response.status, 200);
   assert.equal(response.headers.get('set-cookie'), null);
   const html = await response.text();
-  assert.match(html, /<title>Brian Morris<\/title>/);
+  assert.match(html, /<title>Brian Morris \| Big Data &amp; Cloud Platforms<\/title>/);
   assert.match(html, /id="intro"/);
   assert.match(html, /id="stars"/);
   assert.doesNotMatch(html, /<%/);
