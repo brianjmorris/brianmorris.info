@@ -1,7 +1,11 @@
+rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
+    // No browser/mobile database access until a feature defines its permissions.
+    // Privileged server SDKs use IAM instead; authorize and validate in the API.
     match /{document=**} {
-      allow read, write;
+      allow read, write: if false;
     }
   }
 }

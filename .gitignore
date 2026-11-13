@@ -26,3 +26,6 @@ coverage/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Local source artwork and unused assets (never publish)
+/local/

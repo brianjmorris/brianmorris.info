@@ -12,7 +12,8 @@
       "**/*.map",
       "test/**",
       "coverage/**",
-      "eslint.config.*"
+      "eslint.config.*",
+      "**/local/**"
     ]
   },
   "hosting": {
@@ -23,7 +24,8 @@
       "**/node_modules/**",
       "**/*.bak",
       "**/*-debug.log*",
-      "**/*.map"
+      "**/*.map",
+      "**/local/**"
     ],
     "rewrites": [
       {
@@ -32,6 +34,13 @@
         "region": "northamerica-northeast2"
       }
     ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "database": {
+    "rules": "database.rules.json"
   },
   "emulators": {
     "hosting": {
