@@ -29,3 +29,7 @@ Thumbs.db
 
 # Local source artwork and unused assets (never publish)
 /local/
+
+# Generated preview output and local review artifacts
+/.preview/
+/.render/

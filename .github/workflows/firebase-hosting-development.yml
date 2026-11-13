@@ -1,0 +1,48 @@
+name: Firebase development preview
+
+on:
+  push:
+    branches: [development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: write
+
+concurrency:
+  group: firebase-development-preview
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    if: github.ref == 'refs/heads/development'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            functions/package-lock.json
+      - run: npm ci
+      - run: npm ci --prefix functions
+      - run: npm run build
+      - run: npm --prefix functions run lint
+      - run: npm --prefix functions test
+      - run: node scripts/prepare-preview.mjs
+      - name: Deploy development preview
+        id: deploy
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BRIAN_MORRIS }}
+          projectId: brian-morris
+          channelId: development
+          expires: 30d
+          entryPoint: .preview
+      - name: Record preview URL
+        env:
+          PREVIEW_URLS: ${{ steps.deploy.outputs.urls }}
+        run: echo "Development preview URLs - $PREVIEW_URLS" >> "$GITHUB_STEP_SUMMARY"
